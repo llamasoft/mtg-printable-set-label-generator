@@ -1,14 +1,12 @@
 import argparse
 import logging
 import os
-import subprocess
 from datetime import datetime
 from pathlib import Path
 
 import cairosvg
 import jinja2
 import requests
-
 
 log = logging.getLogger(__name__)
 
@@ -109,23 +107,22 @@ RENAME_SETS = {
 
 
 class LabelGenerator:
-
     DEFAULT_OUTPUT_DIR = Path(os.getcwd()) / "output"
 
-    COLS = 4
-    ROWS = 15
-    MARGIN = 200  # in 1/10 mm
+    COLS = 3
+    ROWS = 10
+    MARGIN = 50  # in 1/10 mm
     START_X = MARGIN
     START_Y = MARGIN
 
     PAPER_SIZES = {
-        "letter": {"width": 2790, "height": 2160,},  # in 1/10 mm
-        "a4": {"width": 2970, "height": 2100,},
+        "letter": {"width": 2160, "height": 2790, },  # in 1/10 mm
+        "a4": {"width": 2100, "height": 2970, },
     }
     DEFAULT_PAPER_SIZE = "letter"
 
     def __init__(self, paper_size=None, output_dir=None):
-        self.paper_size = paper_size or DEFAULT_PAPER_SIZE
+        self.paper_size = paper_size or LabelGenerator.DEFAULT_PAPER_SIZE
         paper = self.PAPER_SIZES[paper_size]
 
         self.set_codes = []
@@ -140,7 +137,7 @@ class LabelGenerator:
         self.delta_x = (self.width - (2 * self.MARGIN)) / self.COLS
         self.delta_y = (self.height - (2 * self.MARGIN)) / self.ROWS
 
-        self.output_dir = Path(output_dir or DEFAULT_OUTPUT_DIR)
+        self.output_dir = Path(output_dir or LabelGenerator.DEFAULT_OUTPUT_DIR)
 
     def generate_labels(self, sets=None):
         if sets:

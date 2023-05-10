@@ -1,6 +1,7 @@
-Jinja2==2.11.3
-requests==2.22.0
-CairoSVG==2.5.2
+Jinja2==3.1.2
+requests==2.30.0
+CairoSVG==2.7.0
 
 # For development only
-black==19.10b0
+black==23.3.0
+setuptools==67.7.2
