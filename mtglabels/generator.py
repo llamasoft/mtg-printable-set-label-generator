@@ -246,11 +246,11 @@ class LabelGenerator:
             filename = filename.split("?")[0]
 
             # Check if the file already exists
-            file_path = os.path.join("output/svg", filename)
+            file_path = os.path.join("mtglabels/templates/svg", filename)
             if os.path.exists(file_path):
                 # Skip downloading if the file exists and has the same size
                 print(f"Skipping download. File already exists: {icon_url}")
-                icon_filename = file_path.replace("output/", "")
+                icon_filename = os.path.relpath(file_path, self.output_dir)
             else:
                 # Download svg set file
                 response = requests.get(icon_url)
@@ -258,7 +258,7 @@ class LabelGenerator:
                     # Save the file in the 'output/svg' folder
                     with open(file_path, "wb") as file:
                         file.write(response.content)
-                    icon_filename = file_path.replace("output/", "")
+                    icon_filename = os.path.relpath(file_path, self.output_dir)
                 else:
                     print(f"Failed to download file: {icon_url}")
                     icon_filename = None
