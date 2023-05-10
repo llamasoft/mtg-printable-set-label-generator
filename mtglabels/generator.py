@@ -49,6 +49,17 @@ IGNORED_SETS = (
     "cmb1",  # Mystery Booster Playtest Cards
     "amh1",  # Modern Horizon Art Series
     "cmb2",  # Mystery Booster Playtest Cards Part Deux
+    "fbb",   # Foreign Black Border
+    "sum",   # Summer Magic / Edgar
+    "4bb",   # Fourth Edition Foreign Black Border
+    "bchr",  # Chronicles Foreign Black Border
+    "rin",   # Rinascimento
+    "ren",   # Renaissance
+    "rqs",   # Rivals Quick Start Set
+    "itp",   # Introductory Two-Player Set
+    "sir",   # Shadows over Innistrad Remastered
+    "sis",   # Shadows of the Past
+    "cst",   # Coldsnap Theme Decks
 )
 
 # Used to rename very long set names
@@ -174,7 +185,7 @@ class LabelGenerator:
             log.info(f"Writing {outfile_pdf}...")
             with open(outfile_svg, "rb") as fd:
                 cairosvg.svg2pdf(
-                    file_obj=fd, write_to=outfile_pdf,
+                    file_obj=fd, write_to=outfile_pdf, unsafe=True,
                 )
 
             page += 1
@@ -228,16 +239,41 @@ class LabelGenerator:
 
         for exp in set_data:
             name = RENAME_SETS.get(exp["name"], exp["name"])
-            labels.append(
-                {
-                    "name": name,
-                    "code": exp["code"],
-                    "date": datetime.strptime(exp["released_at"], "%Y-%m-%d").date(),
-                    "icon_url": exp["icon_svg_uri"],
-                    "x": x,
-                    "y": y,
-                }
-            )
+            icon_url = exp["icon_svg_uri"]
+
+            # Extract the filename from the URL and remove query parameters
+            filename = os.path.basename(icon_url)
+            filename = filename.split("?")[0]
+
+            # Check if the file already exists
+            file_path = os.path.join("output/svg", filename)
+            if os.path.exists(file_path):
+                # Skip downloading if the file exists and has the same size
+                print(f"Skipping download. File already exists: {icon_url}")
+                icon_filename = file_path.replace("output/", "")
+            else:
+                # Download svg set file
+                response = requests.get(icon_url)
+                if response.status_code == 200:
+                    # Save the file in the 'output/svg' folder
+                    with open(file_path, "wb") as file:
+                        file.write(response.content)
+                    icon_filename = file_path.replace("output/", "")
+                else:
+                    print(f"Failed to download file: {icon_url}")
+                    icon_filename = None
+
+            if icon_filename:
+                labels.append(
+                    {
+                        "name": name,
+                        "code": exp["code"],
+                        "date": datetime.strptime(exp["released_at"], "%Y-%m-%d").date(),
+                        "icon_filename": icon_filename,
+                        "x": x,
+                        "y": y,
+                    }
+                )
 
             y += self.delta_y
 
