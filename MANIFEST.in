@@ -1,1 +1,2 @@
 include mtglabels/templates/*.svg
+include mtglabels/templates/svg/*.svg
