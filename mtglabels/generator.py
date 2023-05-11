@@ -247,8 +247,8 @@ class LabelGenerator:
             filename = filename.split("?")[0]
 
             # Check if the file already exists
-            os.makedirs(BASE_DIR / "templates/svg", exist_ok=True)
-            file_path = os.path.join(BASE_DIR / "templates/svg", filename)
+            os.makedirs("/tmp/mtglabels/svg", exist_ok=True)
+            file_path = os.path.join("/tmp/mtglabels/svg", filename)
             if os.path.exists(file_path):
                 # Skip downloading if the file exists and has the same size
                 print(f"Skipping download. File already exists: {icon_url}")
