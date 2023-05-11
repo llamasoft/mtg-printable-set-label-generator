@@ -123,9 +123,9 @@ class LabelGenerator:
 
     COLS = 3
     ROWS = 10
-    MARGIN = 50  # in 1/10 mm
+    MARGIN = 40  # in 1/10 mm
     START_X = MARGIN
-    START_Y = MARGIN
+    START_Y = MARGIN + 40
 
     PAPER_SIZES = {
         "letter": {"width": 2160, "height": 2790, },  # in 1/10 mm
@@ -146,8 +146,8 @@ class LabelGenerator:
         self.height = paper["height"]
 
         # These are the deltas between rows and columns
-        self.delta_x = (self.width - (2 * self.MARGIN)) / self.COLS
-        self.delta_y = (self.height - (2 * self.MARGIN)) / self.ROWS
+        self.delta_x = (self.width - (2 * self.MARGIN)) / self.COLS + 10
+        self.delta_y = (self.height - (2 * self.MARGIN)) / self.ROWS - 18
 
         self.output_dir = Path(output_dir or LabelGenerator.DEFAULT_OUTPUT_DIR)
 
@@ -169,8 +169,6 @@ class LabelGenerator:
             template = ENV.get_template("labels.svg")
             output = template.render(
                 labels=exps,
-                horizontal_guides=self.create_horizontal_cutting_guides(),
-                vertical_guides=self.create_vertical_cutting_guides(),
                 WIDTH=self.width,
                 HEIGHT=self.height,
             )
@@ -291,52 +289,6 @@ class LabelGenerator:
                 y = self.START_Y
 
         return labels
-
-    def create_horizontal_cutting_guides(self):
-        """Create horizontal cutting guides to help cut the labels out straight"""
-        horizontal_guides = []
-        for i in range(self.ROWS + 1):
-            horizontal_guides.append(
-                {
-                    "x1": self.MARGIN / 2,
-                    "x2": self.MARGIN * 0.8,
-                    "y1": self.MARGIN + i * self.delta_y,
-                    "y2": self.MARGIN + i * self.delta_y,
-                }
-            )
-            horizontal_guides.append(
-                {
-                    "x1": self.width - self.MARGIN / 2,
-                    "x2": self.width - self.MARGIN * 0.8,
-                    "y1": self.MARGIN + i * self.delta_y,
-                    "y2": self.MARGIN + i * self.delta_y,
-                }
-            )
-
-        return horizontal_guides
-
-    def create_vertical_cutting_guides(self):
-        """Create horizontal cutting guides to help cut the labels out straight"""
-        vertical_guides = []
-        for i in range(self.COLS + 1):
-            vertical_guides.append(
-                {
-                    "x1": self.MARGIN + i * self.delta_x,
-                    "x2": self.MARGIN + i * self.delta_x,
-                    "y1": self.MARGIN / 2,
-                    "y2": self.MARGIN * 0.8,
-                }
-            )
-            vertical_guides.append(
-                {
-                    "x1": self.MARGIN + i * self.delta_x,
-                    "x2": self.MARGIN + i * self.delta_x,
-                    "y1": self.height - self.MARGIN / 2,
-                    "y2": self.height - self.MARGIN * 0.8,
-                }
-            )
-
-        return vertical_guides
 
 
 def main():
