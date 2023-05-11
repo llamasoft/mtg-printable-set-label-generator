@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -246,11 +247,12 @@ class LabelGenerator:
             filename = filename.split("?")[0]
 
             # Check if the file already exists
-            file_path = os.path.join("mtglabels/templates/svg", filename)
+            os.makedirs(BASE_DIR / "templates/svg", exist_ok=True)
+            file_path = os.path.join(BASE_DIR / "templates/svg", filename)
             if os.path.exists(file_path):
                 # Skip downloading if the file exists and has the same size
                 print(f"Skipping download. File already exists: {icon_url}")
-                icon_filename = os.path.relpath(file_path, self.output_dir)
+                icon_filename = filename
             else:
                 # Download svg set file
                 response = requests.get(icon_url)
@@ -258,12 +260,13 @@ class LabelGenerator:
                     # Save the file in the 'output/svg' folder
                     with open(file_path, "wb") as file:
                         file.write(response.content)
-                    icon_filename = os.path.relpath(file_path, self.output_dir)
+                    icon_filename = filename
                 else:
                     print(f"Failed to download file: {icon_url}")
                     icon_filename = None
 
             if icon_filename:
+                shutil.copy(file_path, self.output_dir)
                 labels.append(
                     {
                         "name": name,
