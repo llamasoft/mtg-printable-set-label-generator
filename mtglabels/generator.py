@@ -10,10 +10,13 @@ import requests
 
 from config import SET_TYPES, MINIMUM_SET_SIZE, IGNORED_SETS, RENAME_SETS, API_ENDPOINT
 
+# Set up logging
 log = logging.getLogger(__name__)
 
+# Get the base directory of the script
 BASE_DIR = Path(__file__).resolve().parent
 
+# Set up the Jinja2 environment for template loading
 ENV = jinja2.Environment(
     loader=jinja2.FileSystemLoader(BASE_DIR / "templates"),
     autoescape=jinja2.select_autoescape(["html", "xml"]),
@@ -21,12 +24,23 @@ ENV = jinja2.Environment(
 
 
 class LabelGenerator:
+    """
+    Class for generating MTG labels.
+    """
+
+    # Default output directory for generated labels
     DEFAULT_OUTPUT_DIR = Path.cwd() / "output"
+
+    # Number of columns and rows on each label page
     COLS = 3
     ROWS = 10
+
+    # Margins and starting positions on the label page
     MARGIN = 40  # in 1/10 mm
     START_X = MARGIN
     START_Y = MARGIN + 40
+
+    # Paper sizes and default paper size
     PAPER_SIZES = {
         "letter": {"width": 2160, "height": 2790},
         "a4": {"width": 2100, "height": 2970},
@@ -34,9 +48,17 @@ class LabelGenerator:
     DEFAULT_PAPER_SIZE = "letter"
 
     def __init__(self, paper_size=None, output_dir=None):
+        """
+        Initialize the LabelGenerator.
+
+        Args:
+            paper_size (str): The paper size to use for the labels. Defaults to DEFAULT_PAPER_SIZE.
+            output_dir (str): The output directory for the generated labels. Defaults to DEFAULT_OUTPUT_DIR.
+        """
         self.paper_size = paper_size or self.DEFAULT_PAPER_SIZE
         paper = self.PAPER_SIZES[self.paper_size]
 
+        # Set up label generation parameters
         self.set_codes = []
         self.ignored_sets = IGNORED_SETS
         self.set_types = SET_TYPES
@@ -48,12 +70,19 @@ class LabelGenerator:
         self.delta_x = (self.width - (2 * self.MARGIN)) / self.COLS + 10
         self.delta_y = (self.height - (2 * self.MARGIN)) / self.ROWS - 18
 
+        # Set up output directory and temporary SVG directory
         self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
 
     def generate_labels(self, sets=None):
+        """
+        Generate the MTG labels.
+
+        Args:
+            sets (list): List of set codes to include. If None, all sets will be included.
+        """
         if sets:
             self.ignored_sets = ()
             self.minimum_set_size = 0
@@ -83,6 +112,12 @@ class LabelGenerator:
             page += 1
 
     def get_set_data(self):
+        """
+        Fetch set data from Scryfall API.
+
+        Returns:
+            list: List of set data dictionaries.
+        """
         try:
             log.info("Getting set data and icons from Scryfall")
 
@@ -116,6 +151,12 @@ class LabelGenerator:
             return []
 
     def create_set_label_data(self):
+        """
+        Create label data for the sets.
+
+        Returns:
+            list: List of label data dictionaries.
+        """
         labels = []
         x = self.START_X
         y = self.START_Y
@@ -170,6 +211,12 @@ class LabelGenerator:
 
 
 def parse_arguments():
+    """
+    Parse command-line arguments.
+
+    Returns:
+        argparse.Namespace: Parsed command-line arguments.
+    """
     parser = argparse.ArgumentParser(description="Generate MTG labels")
     parser.add_argument(
         "--output-dir",
@@ -196,6 +243,9 @@ def parse_arguments():
 
 
 def main():
+    """
+    Main function for running the label generation.
+    """
     log_format = '[%(levelname)s] %(message)s'
     logging.basicConfig(format=log_format, level=logging.INFO)
 
