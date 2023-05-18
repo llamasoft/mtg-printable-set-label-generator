@@ -8,7 +8,7 @@ import cairosvg
 import jinja2
 import requests
 
-from config import SET_TYPES, MINIMUM_SET_SIZE, IGNORED_SETS, RENAME_SETS, API_ENDPOINT
+from config import SET_TYPES, MINIMUM_SET_SIZE, IGNORED_SETS, RENAME_SETS, API_ENDPOINT, Letter
 
 # Set up logging
 log = logging.getLogger(__name__)
@@ -31,46 +31,37 @@ class LabelGenerator:
     # Default output directory for generated labels
     DEFAULT_OUTPUT_DIR = Path.cwd() / "output"
 
-    # Number of columns and rows on each label page
-    COLS = 3
-    ROWS = 10
-
     # Margins and starting positions on the label page
     MARGIN = 40  # in 1/10 mm
     START_X = MARGIN
     START_Y = MARGIN + 40
 
-    # Paper sizes and default paper size
-    PAPER_SIZES = {
-        "letter": {"width": 2160, "height": 2790},
-        "a4": {"width": 2100, "height": 2970},
+    # Label templates
+    LABEL_TEMPLATES = {
+        24: "labels_24.svg",
+        30: "labels_30.svg",
     }
-    DEFAULT_PAPER_SIZE = "letter"
+    DEFAULT_LABELS_PER_SHEET = 30
 
-    def __init__(self, paper_size=None, output_dir=None):
+    def __init__(self, labels_per_sheet=None, output_dir=None):
         """
         Initialize the LabelGenerator.
 
         Args:
-            paper_size (str): The paper size to use for the labels. Defaults to DEFAULT_PAPER_SIZE.
+            labels_per_sheet (int): The number of labels per sheet.
             output_dir (str): The output directory for the generated labels. Defaults to DEFAULT_OUTPUT_DIR.
         """
-        self.paper_size = paper_size or self.DEFAULT_PAPER_SIZE
-        paper = self.PAPER_SIZES[self.paper_size]
-
         # Set up label generation parameters
         self.set_codes = []
         self.ignored_sets = IGNORED_SETS
         self.set_types = SET_TYPES
         self.minimum_set_size = MINIMUM_SET_SIZE
 
-        self.width = paper["width"]
-        self.height = paper["height"]
+        # Calculate delta_x and delta_y based on labels_per_sheet
+        self.labels_per_sheet = labels_per_sheet or self.DEFAULT_LABELS_PER_SHEET
+        self.delta_x = (Letter.WIDTH - (2 * self.MARGIN)) / 3 + 10
+        self.delta_y = (Letter.HEIGHT - (2 * self.MARGIN)) / 10 - 18
 
-        self.delta_x = (self.width - (2 * self.MARGIN)) / self.COLS + 10
-        self.delta_y = (self.height - (2 * self.MARGIN)) / self.ROWS - 18
-
-        # Set up output directory and temporary SVG directory
         self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
@@ -92,15 +83,22 @@ class LabelGenerator:
         page = 1
         labels = self.create_set_label_data()
         label_batches = [
-            labels[i: i + (self.ROWS * self.COLS)]
-            for i in range(0, len(labels), self.ROWS * self.COLS)
+            labels[i: i + self.labels_per_sheet]
+            for i in range(0, len(labels), self.labels_per_sheet)
         ]
 
-        template = ENV.get_template("labels.svg")
+        if self.labels_per_sheet == 30:
+            template_name = "labels_30.svg"
+        elif self.labels_per_sheet == 24:
+            template_name = "labels_24.svg"
+        else:
+            raise ValueError(f"Unsupported labels_per_sheet value: {self.labels_per_sheet}")
+
+        template = ENV.get_template(template_name)
         for batch in label_batches:
-            output = template.render(labels=batch, WIDTH=self.width, HEIGHT=self.height)
-            outfile_svg = self.output_dir / f"labels-{self.paper_size}-{page:02}.svg"
-            outfile_pdf = self.output_dir / f"labels-{self.paper_size}-{page:02}.pdf"
+            output = template.render(labels=batch, WIDTH=Letter.WIDTH, HEIGHT=Letter.WIDTH)
+            outfile_svg = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
+            outfile_pdf = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
 
             log.info(f"Writing {outfile_svg}...")
             with outfile_svg.open("w") as fd:
@@ -199,11 +197,11 @@ class LabelGenerator:
 
             y += self.delta_y
 
-            if len(labels) % self.ROWS == 0:
+            if len(labels) % 3 == 0:
                 x += self.delta_x
                 y = self.START_Y
 
-            if len(labels) % (self.ROWS * self.COLS) == 0:
+            if len(labels) % self.labels_per_sheet == 0:
                 x = self.START_X
                 y = self.START_Y
 
@@ -224,10 +222,11 @@ def parse_arguments():
         help="Output labels to this directory",
     )
     parser.add_argument(
-        "--paper-size",
-        default=LabelGenerator.DEFAULT_PAPER_SIZE,
-        choices=LabelGenerator.PAPER_SIZES.keys(),
-        help='Use this paper size (default: "letter")',
+        "--labels-per-sheet",
+        type=int,
+        default=LabelGenerator.DEFAULT_LABELS_PER_SHEET,
+        choices=[24, 30],
+        help="Number of labels per sheet (default: 30)",
     )
     parser.add_argument(
         "sets",
@@ -251,7 +250,7 @@ def main():
 
     try:
         args = parse_arguments()
-        generator = LabelGenerator(args.paper_size, args.output_dir)
+        generator = LabelGenerator(args.labels_per_sheet, args.output_dir)
         generator.generate_labels(args.sets)
     except requests.exceptions.RequestException as e:
         log.error("Error occurred while making a request: %s", str(e))

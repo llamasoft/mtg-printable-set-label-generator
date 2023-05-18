@@ -98,3 +98,8 @@ RENAME_SETS = {
     "The Brothers' War Commander": "Brothers' War Commander",
     "Phyrexia: All Will Be One Commander": "Phyrexia: One CMDR",
 }
+
+
+class Letter:
+    WIDTH = 2160  # Width of letter-sized paper in 1/10 mm
+    HEIGHT = 2790  # Height of letter-sized paper in 1/10 mm
