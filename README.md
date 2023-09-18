@@ -1,26 +1,25 @@
 Magic: the Gathering Printable Set Label Generator
 ==================================================
 
-This is a small script for generating Magic: the Gathering (MTG) printable set labels
+This is a script for generating Magic: the Gathering (MTG) printable set labels
 in order to organize a collection of cards.
-The code is powered by the [Scryfall API][scryfall-api].
+The code is powered by the [Scryfall API](https://scryfall.com/docs/api/sets).
 As soon as a new set is up on Scryfall,
 the label for that set can be generated and printed.
 
-* Print and cut out the labels
-* Attach set labels to [plastic dividers][plastic-dividers]
+- Print on Avery Address Labels 
+  - for inkjet printer [Avery 8460](https://amzn.to/3rjCk0g)
+  - for laser printer [Avery 5160](https://amzn.to/46kRnpv)
+- Attach set labels to [BCW Tall Trading Card Dividers](https://amzn.to/46l21fT)
 
 <img src="readme-img/organized-cards.jpg">
-
-[scryfall-api]: https://scryfall.com/docs/api/sets
-[plastic-dividers]: https://www.amazon.com/dp/B00S3FF1PI/
 
 
 ## Usage
 
 If you're just interested in downloading and printing these set labels,
 check out the [web frontend](https://mtg-label-generator.fly.dev/)
-([code](https://github.com/davidfischer/mtg-printable-set-label-frontend))
+([code](https://github.com/gofrolist/mtg-printable-set-label-frontend))
 and generate your own labels.
 
 
@@ -28,12 +27,11 @@ and generate your own labels.
 
 If you want to further customize things, read on!
 
-The script `generator.py` is a small Python script to generate the printable labels.
+The script `generator.py` is a Python script to generate the printable labels.
 It requires Python 3.6+ and has a few dependencies.
 
-
-    pip install -r requirements.txt  # Install dependencies
-    python mtglabels/generator.py        # Creates SVG & PDF files in output/
+    pip install -r requirements.txt   # Install dependencies
+    python mtglabels/generator.py     # Creates SVG & PDF files in output/
 
 By default, this will create SVG & PDF files.
 The SVG files are vector image files that can be customized further.
@@ -53,7 +51,7 @@ For example, sets can be excluded one-by-one or in groups by type or sets can be
 The labels are designed for US Letter paper but this can be customized:
 
     python mtglabels/generator.py --paper-size=a4   # Use A4 paper size
-    python mtglabels/generator.py --help   # Show all options
+    python mtglabels/generator.py --help            # Show all options
 
 You can generate labels for specific sets as well:
 
@@ -85,7 +83,7 @@ Some data such as set icons are unofficial Fan Content permitted under the Wizar
 and is copyright Wizards of the Coast, LLC, a subsidiary of Hasbro, Inc.
 This code is not produced by, endorsed by, supported by, or affiliated with Wizards of the Coast.
 
-[home]: https://github.com/davidfischer/mtg-printable-set-label-generator
+[home]: https://github.com/gofrolist/mtg-printable-set-label-generator
 [license]: https://opensource.org/licenses/MIT
 
 
