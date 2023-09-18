@@ -92,14 +92,28 @@ RENAME_SETS = {
     "Strixhaven: School of Mages Minigames": "Strixhaven Minigames",
     "Adventures in the Forgotten Realms Minigames": "Forgotten Realms Minigames",
     "Innistrad: Crimson Vow Minigames": "Crimson Vow Minigames",
+    "Zendikar Rising Commander": "CMDR Zendikar Rising",
+    "Kaldheim Commander": "CMDR Kaldheim",
+    "Forgotten Realms Commander": "CMDR Forgotten Realms",
+    "Midnight Hunt Commander": "CMDR Midnight Hunt",
+    "Crimson Vow Commander": "CMDR Crimson Vow",
+    "Neon Dynasty Commander": "CMDR Neon Dynasty",
+    "New Capenna Commander": "CMDR New Capenna",
+    "Dominaria United Commander": "CMDR Dominaria United",
+    "Starter Commander Decks": "CMDR Starter Decks",
     "Commander Legends: Battle for Baldur's Gate": "CMDR Legends: Baldur's Gate",
-    "Warhammer 40,000 Commander": "Warhammer 40K",
-    "The Brothers' War Retro Artifacts": "Brothers' War Retro",
-    "The Brothers' War Commander": "Brothers' War Commander",
-    "Phyrexia: All Will Be One Commander": "Phyrexia: One CMDR",
+    "Warhammer 40,000 Commander": "CMDR Warhammer 40K",
+    "The Brothers' War Retro Artifacts": "The Brothers' War Retro",
+    "The Brothers' War Commander": "CMDR The Brothers' War",
+    "Phyrexia: All Will Be One Commander": "CMDR Phyrexia: One",
+    "March of the Machine Commander": "CMDR March of the Machine",
+    "March of the Machine: The Aftermath": "March of the Machine: Aftermath",
+    "The Lord of the Rings: Tales of Middle-earth": "The Lord of the Rings",
+    "Tales of Middle-earth Commander": "CMDR The Lord of the Rings",
+    "Angels: They're Just Like Us but Cooler and with Wings": "Angels: They're Just Like Us",
+    "Wilds of Eldraine Commander": "CMDR Wilds of Eldraine",
 }
 
 
-class Letter:
-    WIDTH = 2160  # Width of letter-sized paper in 1/10 mm
-    HEIGHT = 2790  # Height of letter-sized paper in 1/10 mm
+LETTER_WIDTH = 2160  # Letter paper width in mm
+LETTER_HEIGHT = 2790  # Letter paper height in mm

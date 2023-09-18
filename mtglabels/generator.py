@@ -8,9 +8,10 @@ import cairosvg
 import jinja2
 import requests
 
-from config import SET_TYPES, MINIMUM_SET_SIZE, IGNORED_SETS, RENAME_SETS, API_ENDPOINT, Letter
+import config
 
 # Set up logging
+logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
 log = logging.getLogger(__name__)
 
 # Get the base directory of the script
@@ -37,10 +38,7 @@ class LabelGenerator:
     START_Y = MARGIN + 40
 
     # Label templates
-    LABEL_TEMPLATES = {
-        24: "labels_24.svg",
-        30: "labels_30.svg",
-    }
+    LABEL_TEMPLATE_FILENAME = "labels.svg"
     DEFAULT_LABELS_PER_SHEET = 30
 
     def __init__(self, labels_per_sheet=None, output_dir=None):
@@ -51,21 +49,25 @@ class LabelGenerator:
             labels_per_sheet (int): The number of labels per sheet.
             output_dir (str): The output directory for the generated labels. Defaults to DEFAULT_OUTPUT_DIR.
         """
-        # Set up label generation parameters
         self.set_codes = []
-        self.ignored_sets = IGNORED_SETS
-        self.set_types = SET_TYPES
-        self.minimum_set_size = MINIMUM_SET_SIZE
-
-        # Calculate delta_x and delta_y based on labels_per_sheet
         self.labels_per_sheet = labels_per_sheet or self.DEFAULT_LABELS_PER_SHEET
-        self.delta_x = (Letter.WIDTH - (2 * self.MARGIN)) / 3 + 10
-        self.delta_y = (Letter.HEIGHT - (2 * self.MARGIN)) / 10 - 18
-
         self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
+
+        self.tmp_svg_dir = None
+        self.setup_directories()
+
+        self.delta_y = None
+        self.delta_x = None
+        self.calculate_label_dimensions()
+
+    def setup_directories(self):
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
+
+    def calculate_label_dimensions(self):
+        self.delta_x = (config.LETTER_WIDTH - (2 * self.MARGIN)) / 3 + 10
+        self.delta_y = (config.LETTER_HEIGHT - (2 * self.MARGIN)) / (self.labels_per_sheet / 3) - 18
 
     def generate_labels(self, sets=None):
         """
@@ -75,9 +77,9 @@ class LabelGenerator:
             sets (list): List of set codes to include. If None, all sets will be included.
         """
         if sets:
-            self.ignored_sets = ()
-            self.minimum_set_size = 0
-            self.set_types = ()
+            config.IGNORED_SETS = ()
+            config.MINIMUM_SET_SIZE = 0
+            config.SET_TYPES = ()
             self.set_codes = [exp.lower() for exp in sets]
 
         page = 1
@@ -87,16 +89,11 @@ class LabelGenerator:
             for i in range(0, len(labels), self.labels_per_sheet)
         ]
 
-        if self.labels_per_sheet == 30:
-            template_name = "labels_30.svg"
-        elif self.labels_per_sheet == 24:
-            template_name = "labels_24.svg"
-        else:
-            raise ValueError(f"Unsupported labels_per_sheet value: {self.labels_per_sheet}")
+        template_name = self.LABEL_TEMPLATE_FILENAME  # Use the defined constant
 
         template = ENV.get_template(template_name)
         for batch in label_batches:
-            output = template.render(labels=batch, WIDTH=Letter.WIDTH, HEIGHT=Letter.WIDTH)
+            output = template.render(labels=batch, WIDTH=config.LETTER_WIDTH, HEIGHT=config.LETTER_HEIGHT)
             outfile_svg = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
             outfile_pdf = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
 
@@ -119,7 +116,7 @@ class LabelGenerator:
         try:
             log.info("Getting set data and icons from Scryfall")
 
-            resp = requests.get(API_ENDPOINT)
+            resp = requests.get(config.API_ENDPOINT)
             resp.raise_for_status()
 
             data = resp.json().get("data", [])
@@ -135,9 +132,9 @@ class LabelGenerator:
                 exp
                 for exp in data
                 if (
-                    exp["code"] not in self.ignored_sets
-                    and exp["card_count"] >= self.minimum_set_size
-                    and (not self.set_types or exp["set_type"] in self.set_types)
+                    exp["code"] not in config.IGNORED_SETS
+                    and exp["card_count"] >= config.MINIMUM_SET_SIZE
+                    and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
                     and (not self.set_codes or exp["code"].lower() in specified_sets)
                 )
             ]
@@ -162,7 +159,7 @@ class LabelGenerator:
         set_data = self.get_set_data()
 
         for exp in reversed(set_data):
-            name = RENAME_SETS.get(exp["name"], exp["name"])
+            name = config.RENAME_SETS.get(exp["name"], exp["name"])
             icon_url = exp["icon_svg_uri"]
             filename = Path(icon_url).name.split("?")[0]
             file_path = self.tmp_svg_dir / filename
@@ -197,10 +194,12 @@ class LabelGenerator:
 
             y += self.delta_y
 
-            if len(labels) % 3 == 0:
+            # Start a new column if needed
+            if len(labels) % (self.labels_per_sheet / 3) == 0:
                 x += self.delta_x
                 y = self.START_Y
 
+            # Start a new page if needed
             if len(labels) % self.labels_per_sheet == 0:
                 x = self.START_X
                 y = self.START_Y
@@ -245,8 +244,6 @@ def main():
     """
     Main function for running the label generation.
     """
-    log_format = '[%(levelname)s] %(message)s'
-    logging.basicConfig(format=log_format, level=logging.INFO)
 
     try:
         args = parse_arguments()
