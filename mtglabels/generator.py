@@ -8,7 +8,7 @@ import cairosvg
 import jinja2
 import requests
 
-import config
+from . import config
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
