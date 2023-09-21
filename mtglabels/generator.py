@@ -5,10 +5,11 @@ from datetime import datetime
 from pathlib import Path
 
 import cairosvg
+import PyPDF2
 import jinja2
 import requests
 
-from . import config
+from mtglabels import config
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
@@ -67,7 +68,9 @@ class LabelGenerator:
 
     def calculate_label_dimensions(self):
         self.delta_x = (config.LETTER_WIDTH - (2 * self.MARGIN)) / 3 + 10
-        self.delta_y = (config.LETTER_HEIGHT - (2 * self.MARGIN)) / (self.labels_per_sheet / 3) - 18
+        self.delta_y = (config.LETTER_HEIGHT - (2 * self.MARGIN)) / (
+            self.labels_per_sheet / 3
+        ) - 18
 
     def generate_labels(self, sets=None):
         """
@@ -93,18 +96,28 @@ class LabelGenerator:
 
         template = ENV.get_template(template_name)
         for batch in label_batches:
-            output = template.render(labels=batch, WIDTH=config.LETTER_WIDTH, HEIGHT=config.LETTER_HEIGHT)
-            outfile_svg = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
-            outfile_pdf = self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
+            output = template.render(
+                labels=batch, WIDTH=config.LETTER_WIDTH, HEIGHT=config.LETTER_HEIGHT
+            )
+            outfile_svg = (
+                self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
+            )
+            outfile_pdf = (
+                self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
+            )
 
             log.info(f"Writing {outfile_svg}...")
             with outfile_svg.open("w") as fd:
                 fd.write(output)
 
             log.info(f"Writing {outfile_pdf}...")
-            cairosvg.svg2pdf(url=str(outfile_svg), write_to=str(outfile_pdf), unsafe=True)
+            cairosvg.svg2pdf(
+                url=str(outfile_svg), write_to=str(outfile_pdf), unsafe=True
+            )
 
             page += 1
+
+        combine_pdfs(self.output_dir)
 
     def get_set_data(self):
         """
@@ -122,7 +135,9 @@ class LabelGenerator:
             data = resp.json().get("data", [])
 
             known_sets = {exp["code"] for exp in data}
-            specified_sets = {code.lower() for code in self.set_codes} if self.set_codes else set()
+            specified_sets = (
+                {code.lower() for code in self.set_codes} if self.set_codes else set()
+            )
             unknown_sets = specified_sets - known_sets
 
             if unknown_sets:
@@ -185,7 +200,9 @@ class LabelGenerator:
                     {
                         "name": name,
                         "code": exp["code"],
-                        "date": datetime.strptime(exp["released_at"], "%Y-%m-%d").date(),
+                        "date": datetime.strptime(
+                            exp["released_at"], "%Y-%m-%d"
+                        ).date(),
                         "icon_filename": icon_filename,
                         "x": x,
                         "y": y,
@@ -205,6 +222,22 @@ class LabelGenerator:
                 y = self.START_Y
 
         return labels
+
+
+def combine_pdfs(output_dir):
+    pdf_merger = PyPDF2.PdfMerger()
+
+    # List all PDF files in the output directory that match your naming pattern
+    pdf_files = sorted(output_dir.glob("labels-*.pdf"))
+
+    for pdf_file in pdf_files:
+        pdf_merger.append(str(pdf_file))
+
+    # Output combined PDF
+    combined_pdf_path = output_dir / "combined_labels.pdf"
+    with combined_pdf_path.open("wb") as combined_pdf:
+        pdf_merger.write(combined_pdf)
+        log.info(f"Writing {combined_pdf_path}...")
 
 
 def parse_arguments():
