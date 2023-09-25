@@ -46,9 +46,11 @@ jobs:
       - name: Install Python modules
         run: |
           pipenv install --deploy --dev --system
+          pip list
 
       - name: Test generator.py
         run: |
+          pip install --editable .
           python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
 
   snyk-python:
