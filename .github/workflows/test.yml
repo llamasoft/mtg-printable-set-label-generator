@@ -1,0 +1,50 @@
+---
+name: Build & Test
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.github/dependabot.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Upgrade setuptools and wheel
+        run: |
+          pip install \
+            --no-cache-dir \
+            --disable-pip-version-check \
+            --upgrade \
+            pip \
+            setuptools \
+            wheel
+
+      - name: Install pipenv
+        run: |
+          pip install \
+            --no-cache-dir \
+            --disable-pip-version-check \
+            pipenv
+
+      - name: Install Python modules
+        run: |
+          pipenv install --deploy --dev --system
+
+      - name: Test generator.py
+        run: |
+          python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice

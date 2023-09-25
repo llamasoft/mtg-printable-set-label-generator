@@ -1,0 +1,91 @@
+---
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.github/dependabot.yml'
+  schedule:
+    # every Saturday
+    - cron: '0 0 * * 6'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Upgrade setuptools and wheel
+        run: |
+          pip install \
+            --no-cache-dir \
+            --disable-pip-version-check \
+            --upgrade \
+            pip \
+            setuptools \
+            wheel
+
+      - name: Install pipenv
+        run: |
+          pip install \
+            --no-cache-dir \
+            --disable-pip-version-check \
+            pipenv
+
+      - name: Install Python modules
+        run: |
+          pipenv install --deploy --dev --system
+
+      - name: Test generator.py
+        run: |
+          python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
+
+  snyk-python:
+    needs:
+      - build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      - name: Run Snyk to check for Python vulnerabilities
+        continue-on-error: true
+        uses: snyk/actions/python-3.10@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk-python.sarif
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk-python.sarif
+
+  release:
+    needs:
+      - build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: '20'
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        run: npx semantic-release -p @semantic-release/commit-analyzer -p @semantic-release/release-notes-generator -p @semantic-release/github
