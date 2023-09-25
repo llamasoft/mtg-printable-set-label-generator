@@ -54,9 +54,11 @@ jobs:
           python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
 
   snyk-python:
-    needs:
-      - build
     runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.0.0
@@ -90,4 +92,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-        run: npx semantic-release -p @semantic-release/commit-analyzer -p @semantic-release/release-notes-generator -p @semantic-release/github
+        run: npx semantic-release -p @semantic-release/commit-analyzer -p @semantic-release/release-notes-generator -p @semantic-release/github --branches main
