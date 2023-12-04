@@ -3,9 +3,9 @@
   <component name="Black">
     <option name="enabledOnReformat" value="true" />
     <option name="pathToExecutable" value="$USER_HOME$/.pyenv/shims/black" />
-    <option name="sdkUUID" value="3a9b6a26-b17f-4299-b7f6-7a4f36eb9d7e" />
+    <option name="sdkName" value="Pipenv (mtg-printable-set-label-generator)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (mtg-printable-set-label-generator)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (mtglabel)" project-jdk-type="Python SDK" />
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
   </component>
