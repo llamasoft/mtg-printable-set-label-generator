@@ -180,7 +180,7 @@ class LabelGenerator:
             file_path = self.tmp_svg_dir / filename
 
             if file_path.exists():
-                log.info(f"Skipping download. File already exists: {icon_url}")
+                log.debug(f"Skipping download. File already exists: {icon_url}")
                 icon_filename = filename
             else:
                 try:
