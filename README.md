@@ -8,9 +8,9 @@ As soon as a new set is up on Scryfall,
 the label for that set can be generated and printed.
 
 - Print on Avery Address Labels 
-  - for inkjet printer [Avery 8460](https://amzn.to/3rjCk0g)
-  - for laser printer [Avery 5160](https://amzn.to/46kRnpv)
-- Attach set labels to [BCW Tall Trading Card Dividers](https://amzn.to/46l21fT)
+  - for inkjet printer [Avery 8460](https://www.amazon.com/Avery-Address-Printers-Permanent-Adhesive/dp/B00004Z6JX)
+  - for laser printer [Avery 5160](https://www.amazon.com/Avery-Address-Labels-Laser-Printers/dp/B00006B8FZ)
+- Attach set labels to [BCW Tall Trading Card Dividers](https://www.amazon.com/dp/B00S3FF1PI)
 
 <img src="readme-img/organized-cards.jpg">
 
@@ -18,7 +18,7 @@ the label for that set can be generated and printed.
 ## Usage
 
 If you're just interested in downloading and printing these set labels,
-check out the [web frontend](https://mtg-label-generator.fly.dev/)
+check out the [web frontend](https://mtg-printable-label.fly.dev/)
 ([code](https://github.com/gofrolist/mtg-printable-set-label-frontend))
 and generate your own labels.
 
@@ -30,17 +30,17 @@ If you want to further customize things, read on!
 The script `generator.py` is a Python script to generate the printable labels.
 It requires Python 3.6+ and has a few dependencies.
 
-    pip install -r requirements.txt   # Install dependencies
+    brew install cairo                # Install vector graphics library
+    pip install pipenv                # Install python dependency management tool
+    pipenv install                    # Install python dependencies
+    pip install --editable .
     python mtglabels/generator.py     # Creates SVG & PDF files in output/
 
 By default, this will create SVG & PDF files.
 The SVG files are vector image files that can be customized further.
 The PDF files are ready to print.
 
-The SVGs use the free fonts [EB Garamond][garamond] bold and [Source Sans Pro][source-sans] regular.
-
-[garamond]: https://fonts.google.com/specimen/EB+Garamond
-[source-sans]: https://fonts.google.com/specimen/Source+Sans+Pro
+The SVGs use the free fonts [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) bold and [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) regular.
 
 
 ### Customizing
@@ -77,21 +77,16 @@ You can also "print" to a PDF.
 
 ## License
 
-The code is available at [GitHub][home] under the [MIT license][license].
+The code is available at [GitHub](https://github.com/gofrolist/mtg-printable-set-label-generator) under the [MIT license](https://opensource.org/licenses/MIT).
 
 Some data such as set icons are unofficial Fan Content permitted under the Wizards of the Coast Fan Content Policy
 and is copyright Wizards of the Coast, LLC, a subsidiary of Hasbro, Inc.
 This code is not produced by, endorsed by, supported by, or affiliated with Wizards of the Coast.
 
-[home]: https://github.com/gofrolist/mtg-printable-set-label-generator
-[license]: https://opensource.org/licenses/MIT
-
 
 ## Credits
 
 Special thanks goes to the users behind other printable set labels
-such as those found [here][previous-set-labels].
+such as those found [here](https://github.com/xsilium/MTG-Printable-Labels)
 Using these fantastic labels definitely provided inspiration and direction
 and made me want something more customizable and updatable.
-
-[previous-set-labels]: https://github.com/xsilium/MTG-Printable-Labels
