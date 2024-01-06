@@ -6,7 +6,11 @@ build-backend = "setuptools.build_meta"
 name = "mtglabels"
 version = "0.0.19"
 description = "Magic: the Gathering Printable Set Label Generator"
-authors = ["Evgenii Vasilenko <gmrnsk@gmail.com>"]
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Evgenii Vasilenko", email = "gmrnsk@gmail.com"},
+]
 
 dependencies = [
     "jinja2==3.1.2",
