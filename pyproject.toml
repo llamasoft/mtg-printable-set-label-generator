@@ -1,9 +1,13 @@
 [tool.poetry]
 name = "mtglabels"
-version = "0.0.19"
+version = "0.0.20"
 description = "Magic: the Gathering Printable Set Label Generator"
 readme = "README.md"
 authors = ["Evgenii Vasilenko <gmrnsk@gmail.com>"]
+include = [
+    "mtglabels/templates/*.svg",
+    "mtglabels/templates/svg/*.svg"
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -16,6 +20,9 @@ urllib3 = "==2.1.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "==23.12.1"
+
+[tool.poetry.scripts]
+mtglabels = "mtglabels.generator:main"
 
 [build-system]
 requires = ["poetry-core"]
