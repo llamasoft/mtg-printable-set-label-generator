@@ -4,12 +4,14 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-import cairosvg
 import PyPDF2
+import cairosvg
 import jinja2
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
-from mtglabels import config
+import config
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
@@ -23,6 +25,23 @@ ENV = jinja2.Environment(
     loader=jinja2.FileSystemLoader(BASE_DIR / "templates"),
     autoescape=jinja2.select_autoescape(["html", "xml"]),
 )
+
+# Retry Strategy for requests
+retry_strategy = Retry(
+    total=3,  # Total number of retries to allow
+    status_forcelist=[
+        429,
+        500,
+        502,
+        503,
+        504,
+    ],  # Status codes to retry    allowed_methods=
+    allowed_methods=["HEAD", "GET", "OPTIONS"],  # HTTP methods to retry
+    backoff_factor=1,  # Backoff factor for retries
+)
+adapter = HTTPAdapter(max_retries=retry_strategy)
+session = requests.Session()
+session.mount("https://", adapter)  # Mount the retry strategy
 
 
 class LabelGenerator:
@@ -88,7 +107,7 @@ class LabelGenerator:
         page = 1
         labels = self.create_set_label_data()
         label_batches = [
-            labels[i: i + self.labels_per_sheet]
+            labels[i : i + self.labels_per_sheet]
             for i in range(0, len(labels), self.labels_per_sheet)
         ]
 
@@ -126,10 +145,11 @@ class LabelGenerator:
         Returns:
             list: List of set data dictionaries.
         """
+
         try:
             log.info("Getting set data and icons from Scryfall")
 
-            resp = requests.get(config.API_ENDPOINT)
+            resp = session.get(config.API_ENDPOINT)
             resp.raise_for_status()
 
             data = resp.json().get("data", [])
@@ -184,7 +204,7 @@ class LabelGenerator:
                 icon_filename = filename
             else:
                 try:
-                    response = requests.get(icon_url)
+                    response = session.get(icon_url)
                     response.raise_for_status()
                     with file_path.open("wb") as file:
                         file.write(response.content)
