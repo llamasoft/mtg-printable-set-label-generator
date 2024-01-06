@@ -46,7 +46,7 @@ jobs:
         env:
           POETRY_VIRTUALENVS_CREATE: false
         run: |
-          poetry install --no-cache --no-root --without dev
+          poetry install --no-cache --without dev
           pip list
 
       - name: Test generator.py

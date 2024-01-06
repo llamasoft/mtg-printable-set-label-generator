@@ -11,7 +11,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-import config
+import mtglabels.config as config
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
