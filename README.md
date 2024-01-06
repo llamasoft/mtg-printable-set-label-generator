@@ -31,8 +31,8 @@ The script `generator.py` is a Python script to generate the printable labels.
 It requires Python 3.6+ and has a few dependencies.
 
     brew install cairo                # Install vector graphics library
-    pip install pipenv                # Install python dependency management tool
-    pipenv install                    # Install python dependencies
+    pip install poetry                # Install python dependency management tool
+    poetry install                    # Install python dependencies
     pip install --editable .
     python mtglabels/generator.py     # Creates SVG & PDF files in output/
 

@@ -36,21 +36,22 @@ jobs:
             setuptools \
             wheel
 
-      - name: Install pipenv
+      - name: Install poetry
         run: |
           pip install \
             --no-cache-dir \
             --disable-pip-version-check \
-            pipenv
+            poetry
 
       - name: Install Python modules
+        env:
+          POETRY_VIRTUALENVS_CREATE: false
         run: |
-          pipenv install --deploy --dev --system
+          poetry install --no-cache --no-root --without dev
           pip list
 
       - name: Test generator.py
         run: |
-          pip install --editable .
           python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
 
   snyk-python:
@@ -94,4 +95,9 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-        run: npx semantic-release -p @semantic-release/commit-analyzer -p @semantic-release/release-notes-generator -p @semantic-release/github --branches main
+        run: |
+          npx semantic-release \
+            -p @semantic-release/commit-analyzer \
+            -p @semantic-release/release-notes-generator \
+            -p @semantic-release/github \
+            --branches main
