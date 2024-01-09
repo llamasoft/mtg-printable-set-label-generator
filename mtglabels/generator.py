@@ -4,9 +4,9 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-import PyPDF2
 import cairosvg
 import jinja2
+import PyPDF2
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry

@@ -7,7 +7,7 @@ The code is powered by the [Scryfall API](https://scryfall.com/docs/api/sets).
 As soon as a new set is up on Scryfall,
 the label for that set can be generated and printed.
 
-- Print on Avery Address Labels 
+- Print on Avery Address Labels
   - for inkjet printer [Avery 8460](https://www.amazon.com/Avery-Address-Printers-Permanent-Adhesive/dp/B00004Z6JX)
   - for laser printer [Avery 5160](https://www.amazon.com/Avery-Address-Labels-Laser-Printers/dp/B00006B8FZ)
 - Attach set labels to [BCW Tall Trading Card Dividers](https://www.amazon.com/dp/B00S3FF1PI)
