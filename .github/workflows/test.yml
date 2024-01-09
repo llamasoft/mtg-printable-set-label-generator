@@ -8,47 +8,36 @@ on:
       - 'LICENSE'
       - '.github/dependabot.yml'
 
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: true
+
 jobs:
   build:
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        python: ["3.10", "3.11"]
+        python: ["3.10", "3.11", "3.12"]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
+
+      - name: Install poetry
+        run: |
+          pipx install poetry
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-
-      - name: Upgrade setuptools and wheel
-        run: |
-          pip install \
-            --no-cache-dir \
-            --disable-pip-version-check \
-            --upgrade \
-            pip \
-            setuptools \
-            wheel
-
-      - name: Install poetry
-        run: |
-          pip install \
-            --no-cache-dir \
-            --disable-pip-version-check \
-            poetry
+          cache: poetry
 
       - name: Install Python modules
-        env:
-          POETRY_VIRTUALENVS_CREATE: false
         run: |
-          poetry install --no-cache --without dev
-          pip list
+          poetry install --without dev
+          poetry run pip list
 
       - name: Test generator.py
         run: |
-          python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
+          poetry run python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice

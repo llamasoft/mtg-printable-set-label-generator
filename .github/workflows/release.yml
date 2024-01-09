@@ -14,45 +14,34 @@ on:
     - cron: '0 0 * * 6'
   workflow_dispatch:
 
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: true
+
 jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
+
+      - name: Install poetry
+        run: |
+          pipx install poetry
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-
-      - name: Upgrade setuptools and wheel
-        run: |
-          pip install \
-            --no-cache-dir \
-            --disable-pip-version-check \
-            --upgrade \
-            pip \
-            setuptools \
-            wheel
-
-      - name: Install poetry
-        run: |
-          pip install \
-            --no-cache-dir \
-            --disable-pip-version-check \
-            poetry
+          python-version: '3.11'
+          cache: poetry
 
       - name: Install Python modules
-        env:
-          POETRY_VIRTUALENVS_CREATE: false
         run: |
-          poetry install --no-cache --without dev
-          pip list
+          poetry install --without dev
+          poetry run pip list
 
       - name: Test generator.py
         run: |
-          python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
+          poetry run python mtglabels/generator.py --labels-per-sheet 30 --output-dir /tmp ice
 
   snyk-python:
     runs-on: ubuntu-22.04
@@ -62,7 +51,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
 
       - name: Run Snyk to check for Python vulnerabilities
         continue-on-error: true
@@ -85,10 +74,10 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
