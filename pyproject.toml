@@ -35,3 +35,8 @@ build-backend = "poetry.core.masonry.api"
 branch = "main"
 version_toml = ["pyproject.toml:tool.poetry.version"]
 commit_message = "chore(release): bump version to v{version} [skip ci]"
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+    "Merge pull request",
+]
