@@ -38,5 +38,6 @@ commit_message = "chore(release): bump version to v{version} [skip ci]"
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
-    "Merge pull request",
+    "^Merge pull request",
+    "^Merge branch",
 ]
