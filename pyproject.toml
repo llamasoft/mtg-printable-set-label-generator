@@ -30,3 +30,8 @@ mtglabels = "mtglabels.generator:main"
 [build-system]
 requires = ["poetry-core>=1.8.1"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+branch = "main"
+version_toml = "pyproject.toml:tool.poetry.version"
+commit_message = "chore(release): bump version to v{version} [skip ci]"
