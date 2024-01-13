@@ -2,7 +2,32 @@
 
 
 
+## v0.0.24 (2024-01-13)
+
+### Fix
+
+* fix(deps): bump jinja2 from 3.1.2 to 3.1.3
+
+Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.2 to 3.1.3.
+- [Release notes](https://github.com/pallets/jinja/releases)
+- [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/jinja/compare/3.1.2...3.1.3)
+
+---
+updated-dependencies:
+- dependency-name: jinja2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`11a6a36`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/11a6a369ca313ea7bb243a0565cea178a94fd8d9))
+
+
 ## v0.0.23 (2024-01-11)
+
+### Chore
+
+* chore(release): bump version to v0.0.23 [skip ci] ([`7cef287`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7cef287ea0b178ff65797a872bcd961ae270a2db))
 
 ### Fix
 
