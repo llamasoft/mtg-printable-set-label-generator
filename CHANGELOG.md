@@ -2,7 +2,48 @@
 
 
 
+## v0.0.25 (2024-01-27)
+
+### Fix
+
+* fix(deps-dev): bump black from 23.12.1 to 24.1.0
+
+Bumps [black](https://github.com/psf/black) from 23.12.1 to 24.1.0.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/23.12.1...24.1.0)
+
+---
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ed2a9a1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ed2a9a1a8d9f09ce6e4058bdb4296c5dfe045a9d))
+
+* fix(deps): bump markupsafe from 2.1.3 to 2.1.4
+
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.3 to 2.1.4.
+- [Release notes](https://github.com/pallets/markupsafe/releases)
+- [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/markupsafe/compare/2.1.3...2.1.4)
+
+---
+updated-dependencies:
+- dependency-name: markupsafe
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0a238aa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0a238aa5ceb51bf9f74a3e77c2217a6e75952625))
+
+
 ## v0.0.24 (2024-01-13)
+
+### Chore
+
+* chore(release): bump version to v0.0.24 [skip ci] ([`a6f32e4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a6f32e42363965ef99936d21e306590ce159dc7f))
 
 ### Fix
 
