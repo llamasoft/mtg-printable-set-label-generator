@@ -2,7 +2,64 @@
 
 
 
+## v0.0.26 (2024-02-03)
+
+### Fix
+
+* fix(deps): bump markupsafe from 2.1.4 to 2.1.5
+
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.4 to 2.1.5.
+- [Release notes](https://github.com/pallets/markupsafe/releases)
+- [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/markupsafe/compare/2.1.4...2.1.5)
+
+---
+updated-dependencies:
+- dependency-name: markupsafe
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`9a4be1d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9a4be1d90b704afeea40a5d04a3b2968023aa03f))
+
+* fix(deps): bump urllib3 from 2.1.0 to 2.2.0
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.1.0 to 2.2.0.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/2.1.0...2.2.0)
+
+---
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2a875f8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2a875f86c6ab19765e42a23593b2e750de23a060))
+
+* fix(deps-dev): bump black from 24.1.0 to 24.1.1
+
+Bumps [black](https://github.com/psf/black) from 24.1.0 to 24.1.1.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.1.0...24.1.1)
+
+---
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0d332fa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0d332fa1a9296ae554ecd196fc6054f57c5bd6c8))
+
+
 ## v0.0.25 (2024-01-27)
+
+### Chore
+
+* chore(release): bump version to v0.0.25 [skip ci] ([`cfde972`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cfde9720ff2e11ea8a50b7a5b896752d9f478d23))
 
 ### Fix
 
