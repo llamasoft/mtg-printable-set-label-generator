@@ -2,7 +2,48 @@
 
 
 
+## v0.0.27 (2024-02-10)
+
+### Fix
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.0.1 to 9.0.3.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.0.1...v9.0.3)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d0a8c17`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d0a8c176369bcae85fa1737877f94bb61649286d))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 8.7.2 to 9.0.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v8.7.2...v9.0.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`eab3a71`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/eab3a71049b6154c4ea802a146e86603eaa43396))
+
+
 ## v0.0.26 (2024-02-03)
+
+### Chore
+
+* chore(release): bump version to v0.0.26 [skip ci] ([`beb55ac`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/beb55acc9b2e8f4e75de49992af5d5fd70ed660e))
 
 ### Fix
 
