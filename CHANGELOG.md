@@ -2,7 +2,32 @@
 
 
 
+## v0.0.29 (2024-02-24)
+
+### Fix
+
+* fix(deps): bump urllib3 from 2.2.0 to 2.2.1
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.0 to 2.2.1.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/2.2.0...2.2.1)
+
+---
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2319def`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2319def8db114c21701b1f7da8970934270d6e84))
+
+
 ## v0.0.28 (2024-02-17)
+
+### Chore
+
+* chore(release): bump version to v0.0.28 [skip ci] ([`be4a260`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/be4a260038c226ef1832a2576a864a71b5478ede))
 
 ### Fix
 
