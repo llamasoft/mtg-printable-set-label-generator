@@ -2,7 +2,48 @@
 
 
 
+## v0.0.35 (2024-04-13)
+
+### Fix
+
+* fix(deps-dev): bump black from 24.3.0 to 24.4.0
+
+Bumps [black](https://github.com/psf/black) from 24.3.0 to 24.4.0.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.3.0...24.4.0)
+
+---
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b96c145`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b96c145a18f57ee7cb8fe0d8a8319b8313725093))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.4.0 to 9.4.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.0...v9.4.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ebb21f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ebb21f3b01a33c1120700aebedec35b5b67fbea9))
+
+
 ## v0.0.34 (2024-04-06)
+
+### Chore
+
+* chore(release): bump version to v0.0.34 [skip ci] ([`5b5a856`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b5a8561745e744730ce8141125edb728800db94))
 
 ### Fix
 
