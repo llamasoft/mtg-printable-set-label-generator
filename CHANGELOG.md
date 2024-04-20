@@ -2,7 +2,32 @@
 
 
 
+## v0.0.36 (2024-04-20)
+
+### Fix
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.4.1 to 9.4.2.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.1...v9.4.2)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`56ed555`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/56ed555779cfe0e712b050530776fc5456a2f63c))
+
+
 ## v0.0.35 (2024-04-13)
+
+### Chore
+
+* chore(release): bump version to v0.0.35 [skip ci] ([`dea8771`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/dea87715dd979067765ea49e59613e79c12e861a))
 
 ### Fix
 
