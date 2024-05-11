@@ -2,7 +2,64 @@
 
 
 
+## v0.0.39 (2024-05-11)
+
+### Fix
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.0 to 9.7.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.0...v9.7.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`9049ad3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9049ad30433994eaa12366984522b77f2b028ff6))
+
+* fix(deps): bump jinja2 from 3.1.3 to 3.1.4
+
+Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.3 to 3.1.4.
+- [Release notes](https://github.com/pallets/jinja/releases)
+- [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/jinja/compare/3.1.3...3.1.4)
+
+---
+updated-dependencies:
+- dependency-name: jinja2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6a1d56d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/6a1d56d82c02a75db12287dadb7d0dc8845725e5))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.6.0 to 9.7.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.6.0...v9.7.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0492537`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0492537260ae00cc058c4b908eca7f28363e61cd))
+
+
 ## v0.0.38 (2024-05-04)
+
+### Chore
+
+* chore(release): bump version to v0.0.38 [skip ci] ([`d2ab817`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d2ab81778cbfdfc3cc79801cce67b1bf86726748))
 
 ### Fix
 
