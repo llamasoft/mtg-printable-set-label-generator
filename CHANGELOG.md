@@ -2,7 +2,48 @@
 
 
 
+## v0.0.40 (2024-05-18)
+
+### Fix
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.2 to 9.7.3.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.2...v9.7.3)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c9d21f6`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/c9d21f684a845d2250aab6c5a4a83c2f70c3b36c))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.1 to 9.7.2.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.1...v9.7.2)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6619010`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/661901023b4a69ccd1d7d6ed269a06c8ed25f27b))
+
+
 ## v0.0.39 (2024-05-11)
+
+### Chore
+
+* chore(release): bump version to v0.0.39 [skip ci] ([`44496b4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/44496b478d6e3e6cfb6ba3d264318e3deed62cff))
 
 ### Fix
 
