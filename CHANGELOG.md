@@ -2,7 +2,72 @@
 
 
 
+## v0.0.41 (2024-06-01)
+
+### Fix
+
+* fix(deps): bump requests from 2.32.2 to 2.32.3
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.2 to 2.32.3.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.2...v2.32.3)
+
+---
+updated-dependencies:
+- dependency-name: requests
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`45f4032`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/45f4032978d8dc9be7150a808d1a6ebc22df0eff))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.3 to 9.8.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.3...v9.8.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ab0fd4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ab0fd4eae89f1358aae7dcb90a2762e710fcf51a))
+
+### Unknown
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: requests
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6488527`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/6488527ab0c8dde91ee3ca253d9150f00842ecae))
+
+* 
+
+---
+updated-dependencies:
+- dependency-name: requests
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8b9ce8d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8b9ce8dc9f051cc34e4616edc63ae3d80b7b178c))
+
+
 ## v0.0.40 (2024-05-18)
+
+### Chore
+
+* chore(release): bump version to v0.0.40 [skip ci] ([`5679280`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/567928052bef7fc93d1c9f3ca4123271a703ce3a))
 
 ### Fix
 
