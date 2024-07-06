@@ -1,6 +1,45 @@
 # CHANGELOG
 
+## v0.0.44 (2024-07-06)
+
+### Fix
+
+* fix(deps): bump dependabot/fetch-metadata from 2.1.0 to 2.2.0
+
+Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 2.1.0 to 2.2.0.
+- [Release notes](https://github.com/dependabot/fetch-metadata/releases)
+- [Commits](https://github.com/dependabot/fetch-metadata/compare/v2.1.0...v2.2.0)
+
+---
+updated-dependencies:
+- dependency-name: dependabot/fetch-metadata
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`56a4886`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/56a4886000083d724b80245bc36f7bddfea7188b))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.3 to 9.8.4.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.3...v9.8.4)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5e88cfa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5e88cfa33db1d5eb22e21ce26558b099bdff0f5e))
+
 ## v0.0.43 (2024-06-22)
+
+### Chore
+
+* chore(release): bump version to v0.0.43 [skip ci] ([`d9a4004`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d9a4004844d72f7c39f41f0eadc21ae37a6327b0))
 
 ### Fix
 
