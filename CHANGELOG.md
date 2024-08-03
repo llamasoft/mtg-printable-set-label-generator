@@ -1,6 +1,30 @@
 # CHANGELOG
 
+## v0.0.47 (2024-08-03)
+
+### Fix
+
+* fix(deps-dev): bump black from 24.4.2 to 24.8.0
+
+Bumps [black](https://github.com/psf/black) from 24.4.2 to 24.8.0.
+- [Release notes](https://github.com/psf/black/releases)
+- [Changelog](https://github.com/psf/black/blob/main/CHANGES.md)
+- [Commits](https://github.com/psf/black/compare/24.4.2...24.8.0)
+
+---
+updated-dependencies:
+- dependency-name: black
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5abeb00`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5abeb0077c821c7d29a7fb5d8363b5b660637d22))
+
 ## v0.0.46 (2024-07-27)
+
+### Chore
+
+* chore(release): bump version to v0.0.46 [skip ci] ([`fc88af5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fc88af5ab79f7172b5cd3cf0fb11336a1954f0ad))
 
 ### Fix
 
