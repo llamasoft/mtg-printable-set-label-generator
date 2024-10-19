@@ -1,9 +1,78 @@
 # CHANGELOG
 
 
+## v0.0.54 (2024-10-19)
+
+### Bug Fixes
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.11.1 to 9.12.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11.1...v9.12.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`b9e59d8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b9e59d8ce154b71009358a28357601d7af68cdc1))
+
+* fix(deps): bump markupsafe from 3.0.1 to 3.0.2
+
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.1 to 3.0.2.
+- [Release notes](https://github.com/pallets/markupsafe/releases)
+- [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/markupsafe/compare/3.0.1...3.0.2)
+
+---
+updated-dependencies:
+- dependency-name: markupsafe
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`52f47a9`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/52f47a9a262903448e598da93906b710ef4dab54))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.11.0 to 9.11.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11.0...v9.11.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`0de21ca`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0de21ca145ea11495237dfc981e3903bacc95dff))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.10.1 to 9.11.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.10.1...v9.11.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`3aa46eb`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3aa46eb438f22ad9c1dd61e66c22768ec15711a8))
+
+
 ## v0.0.53 (2024-10-12)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -85,14 +154,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`f19fc0c`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/f19fc0cae3be6f604c6536b68bddb0a72974dd51))
 
+### Chores
+
+* chore(release): bump version to v0.0.53 [skip ci] ([`eaab2ae`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/eaab2ae539fbe529d92cc05058dc3db5a6c1cc63))
+
 
 ## v0.0.52 (2024-10-05)
 
-### Chores
-
-* chore(release): bump version to v0.0.52 [skip ci] ([`fae168d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fae168d6028ff8cfae66a1764cbf877617ec5c80))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -110,14 +179,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`aef1fff`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/aef1fff1af758098d709a1a36ad5d58886fa586c))
 
+### Chores
+
+* chore(release): bump version to v0.0.52 [skip ci] ([`fae168d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fae168d6028ff8cfae66a1764cbf877617ec5c80))
+
 
 ## v0.0.51 (2024-09-28)
 
-### Chores
-
-* chore(release): bump version to v0.0.51 [skip ci] ([`2b595ec`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2b595ec1716d1750e83c3bcbca8bc599885bb64f))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -135,14 +204,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`7ce9d3c`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ce9d3ca13d38be9ce8acdce3f5a84a6d30d0d10))
 
+### Chores
+
+* chore(release): bump version to v0.0.51 [skip ci] ([`2b595ec`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2b595ec1716d1750e83c3bcbca8bc599885bb64f))
+
 
 ## v0.0.50 (2024-09-14)
 
-### Chores
-
-* chore(release): bump version to v0.0.50 [skip ci] ([`7ff60b5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ff60b55aed280caa56bee5ba2d1fcf94c75c894))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump urllib3 from 2.2.2 to 2.2.3
 
@@ -160,14 +229,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`db66087`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/db66087f458af47bc21676a7b1962c97bbfdad90))
 
+### Chores
+
+* chore(release): bump version to v0.0.50 [skip ci] ([`7ff60b5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ff60b55aed280caa56bee5ba2d1fcf94c75c894))
+
 
 ## v0.0.49 (2024-09-07)
 
-### Chores
-
-* chore(release): bump version to v0.0.49 [skip ci] ([`a3d89d8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a3d89d855324da6c1b7c6d5563fa0ed100ab9acc))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -185,14 +254,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`c2787af`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/c2787afda7a8488f4cc13a079c3b4589dae63bd5))
 
+### Chores
+
+* chore(release): bump version to v0.0.49 [skip ci] ([`a3d89d8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a3d89d855324da6c1b7c6d5563fa0ed100ab9acc))
+
 
 ## v0.0.48 (2024-08-24)
 
-### Chores
-
-* chore(release): bump version to v0.0.48 [skip ci] ([`9607cd4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9607cd46613e551498660a8a7f7943e6fac12c2e))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -210,14 +279,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`ae394fc`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ae394fc16483aa4a783f307d3a943b7ebd58f179))
 
+### Chores
+
+* chore(release): bump version to v0.0.48 [skip ci] ([`9607cd4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9607cd46613e551498660a8a7f7943e6fac12c2e))
+
 
 ## v0.0.47 (2024-08-03)
 
-### Chores
-
-* chore(release): bump version to v0.0.47 [skip ci] ([`cf46c0f`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cf46c0ffdadf0e4198a010767a857bd291985e04))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 24.4.2 to 24.8.0
 
@@ -235,14 +304,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`5abeb00`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5abeb0077c821c7d29a7fb5d8363b5b660637d22))
 
+### Chores
+
+* chore(release): bump version to v0.0.47 [skip ci] ([`cf46c0f`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cf46c0ffdadf0e4198a010767a857bd291985e04))
+
 
 ## v0.0.46 (2024-07-27)
 
-### Chores
-
-* chore(release): bump version to v0.0.46 [skip ci] ([`fc88af5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fc88af5ab79f7172b5cd3cf0fb11336a1954f0ad))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -260,14 +329,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`50800c0`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/50800c050e530969bb3378f789e678ce39c04bec))
 
+### Chores
+
+* chore(release): bump version to v0.0.46 [skip ci] ([`fc88af5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fc88af5ab79f7172b5cd3cf0fb11336a1954f0ad))
+
 
 ## v0.0.45 (2024-07-13)
 
-### Chores
-
-* chore(release): bump version to v0.0.45 [skip ci] ([`fefdffb`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fefdffba94bd295b484a2d8739f512fb541ea7c2))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -285,14 +354,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`51a18a4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/51a18a45533ca30d6540d5bf8891ee8adfdb7c56))
 
+### Chores
+
+* chore(release): bump version to v0.0.45 [skip ci] ([`fefdffb`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fefdffba94bd295b484a2d8739f512fb541ea7c2))
+
 
 ## v0.0.44 (2024-07-06)
 
-### Chores
-
-* chore(release): bump version to v0.0.44 [skip ci] ([`e270fdf`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e270fdfa1f8be7d46589092b212f19fccff543e2))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump dependabot/fetch-metadata from 2.1.0 to 2.2.0
 
@@ -325,14 +394,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`5e88cfa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5e88cfa33db1d5eb22e21ce26558b099bdff0f5e))
 
+### Chores
+
+* chore(release): bump version to v0.0.44 [skip ci] ([`e270fdf`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e270fdfa1f8be7d46589092b212f19fccff543e2))
+
 
 ## v0.0.43 (2024-06-22)
 
-### Chores
-
-* chore(release): bump version to v0.0.43 [skip ci] ([`d9a4004`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d9a4004844d72f7c39f41f0eadc21ae37a6327b0))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -382,14 +451,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`9615381`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9615381ce2fa5b83d76ddb2faa7d592452e55b8f))
 
+### Chores
+
+* chore(release): bump version to v0.0.43 [skip ci] ([`d9a4004`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d9a4004844d72f7c39f41f0eadc21ae37a6327b0))
+
 
 ## v0.0.42 (2024-06-08)
 
-### Chores
-
-* chore(release): bump version to v0.0.42 [skip ci] ([`e2adea1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2adea1ac0c4d4472410e802dc14a89012ff2dc1))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -407,14 +476,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`54288d1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/54288d1da48398d6947e850b563222f3c5df2156))
 
+### Chores
+
+* chore(release): bump version to v0.0.42 [skip ci] ([`e2adea1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2adea1ac0c4d4472410e802dc14a89012ff2dc1))
+
 
 ## v0.0.41 (2024-06-01)
 
-### Chores
-
-* chore(release): bump version to v0.0.41 [skip ci] ([`ff2e1c2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ff2e1c20c01bd9665664c56268b9cb0dae6e2b1e))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump requests from 2.32.2 to 2.32.3
 
@@ -448,6 +517,10 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`ab0fd4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ab0fd4eae89f1358aae7dcb90a2762e710fcf51a))
 
+### Chores
+
+* chore(release): bump version to v0.0.41 [skip ci] ([`ff2e1c2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ff2e1c20c01bd9665664c56268b9cb0dae6e2b1e))
+
 ### Unknown
 
 * 
@@ -475,11 +548,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`8b9ce8d`](https://github.
 
 ## v0.0.40 (2024-05-18)
 
-### Chores
-
-* chore(release): bump version to v0.0.40 [skip ci] ([`5679280`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/567928052bef7fc93d1c9f3ca4123271a703ce3a))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -513,14 +582,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`6619010`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/661901023b4a69ccd1d7d6ed269a06c8ed25f27b))
 
+### Chores
+
+* chore(release): bump version to v0.0.40 [skip ci] ([`5679280`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/567928052bef7fc93d1c9f3ca4123271a703ce3a))
+
 
 ## v0.0.39 (2024-05-11)
 
-### Chores
-
-* chore(release): bump version to v0.0.39 [skip ci] ([`44496b4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/44496b478d6e3e6cfb6ba3d264318e3deed62cff))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -570,14 +639,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`0492537`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0492537260ae00cc058c4b908eca7f28363e61cd))
 
+### Chores
+
+* chore(release): bump version to v0.0.39 [skip ci] ([`44496b4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/44496b478d6e3e6cfb6ba3d264318e3deed62cff))
+
 
 ## v0.0.38 (2024-05-04)
 
-### Chores
-
-* chore(release): bump version to v0.0.38 [skip ci] ([`d2ab817`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d2ab81778cbfdfc3cc79801cce67b1bf86726748))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -595,14 +664,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`6e9d775`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/6e9d7758dc0855546fdd71272bd2f7e37fd2b8f0))
 
+### Chores
+
+* chore(release): bump version to v0.0.38 [skip ci] ([`d2ab817`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d2ab81778cbfdfc3cc79801cce67b1bf86726748))
+
 
 ## v0.0.37 (2024-04-27)
 
-### Chores
-
-* chore(release): bump version to v0.0.37 [skip ci] ([`3d1783a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3d1783aa5c560d9ac688d293e989bfdeb85759a9))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 24.4.1 to 24.4.2
 
@@ -667,14 +736,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`06aaa8f`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/06aaa8f98d61b81695ded5e4c68285d6fd2107b3))
 
+### Chores
+
+* chore(release): bump version to v0.0.37 [skip ci] ([`3d1783a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3d1783aa5c560d9ac688d293e989bfdeb85759a9))
+
 
 ## v0.0.36 (2024-04-20)
 
-### Chores
-
-* chore(release): bump version to v0.0.36 [skip ci] ([`5f45c4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5f45c4eb8be2837781917ff89961c9807c965851))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -692,14 +761,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`56ed555`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/56ed555779cfe0e712b050530776fc5456a2f63c))
 
+### Chores
+
+* chore(release): bump version to v0.0.36 [skip ci] ([`5f45c4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5f45c4eb8be2837781917ff89961c9807c965851))
+
 
 ## v0.0.35 (2024-04-13)
 
-### Chores
-
-* chore(release): bump version to v0.0.35 [skip ci] ([`dea8771`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/dea87715dd979067765ea49e59613e79c12e861a))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 24.3.0 to 24.4.0
 
@@ -733,14 +802,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`ebb21f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ebb21f3b01a33c1120700aebedec35b5b67fbea9))
 
+### Chores
+
+* chore(release): bump version to v0.0.35 [skip ci] ([`dea8771`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/dea87715dd979067765ea49e59613e79c12e861a))
+
 
 ## v0.0.34 (2024-04-06)
 
-### Chores
-
-* chore(release): bump version to v0.0.34 [skip ci] ([`5b5a856`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b5a8561745e744730ce8141125edb728800db94))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -758,14 +827,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`4fa57be`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/4fa57bed49b12519bc5f26bb850a508ede9e7a94))
 
+### Chores
+
+* chore(release): bump version to v0.0.34 [skip ci] ([`5b5a856`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b5a8561745e744730ce8141125edb728800db94))
+
 
 ## v0.0.33 (2024-03-30)
 
-### Chores
-
-* chore(release): bump version to v0.0.33 [skip ci] ([`a76b185`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a76b185afe8d7efed0c7e7a7b2a4e141ed8f6c39))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -783,14 +852,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`64140b6`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/64140b6eafbbdd9809d2975b8687db967872ea40))
 
+### Chores
+
+* chore(release): bump version to v0.0.33 [skip ci] ([`a76b185`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a76b185afe8d7efed0c7e7a7b2a4e141ed8f6c39))
+
 
 ## v0.0.32 (2024-03-23)
 
-### Chores
-
-* chore(release): bump version to v0.0.32 [skip ci] ([`a17af81`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a17af81b9dbf6bb07d9c9fa5790b0aa91d54fb2e))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump dependabot/fetch-metadata from 1.7.0 to 2.0.0
 
@@ -870,14 +939,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`1ef1453`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/1ef145338a0433b4b5a7df80f6abda2c360cec22))
 
+### Chores
+
+* chore(release): bump version to v0.0.32 [skip ci] ([`a17af81`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a17af81b9dbf6bb07d9c9fa5790b0aa91d54fb2e))
+
 
 ## v0.0.31 (2024-03-16)
 
-### Chores
-
-* chore(release): bump version to v0.0.31 [skip ci] ([`9e0af57`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9e0af57328ffa56dbfe549177e9a23f5485957c3))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 24.2.0 to 24.3.0
 
@@ -895,14 +964,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`7b99102`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7b991027ec1c00d0eb8957ddc116a367189f1ed6))
 
+### Chores
+
+* chore(release): bump version to v0.0.31 [skip ci] ([`9e0af57`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9e0af57328ffa56dbfe549177e9a23f5485957c3))
+
 
 ## v0.0.30 (2024-03-02)
 
-### Chores
-
-* chore(release): bump version to v0.0.30 [skip ci] ([`376d089`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/376d089eb77399a4c0510a3fe3388a8c508c3321))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -920,14 +989,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`cc76349`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cc76349a7685ea99109a3ff3437a8a31c70e3450))
 
+### Chores
+
+* chore(release): bump version to v0.0.30 [skip ci] ([`376d089`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/376d089eb77399a4c0510a3fe3388a8c508c3321))
+
 
 ## v0.0.29 (2024-02-24)
 
-### Chores
-
-* chore(release): bump version to v0.0.29 [skip ci] ([`91e634a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/91e634a1173ac4dfe3fb33dcf17a55225adb84b3))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump urllib3 from 2.2.0 to 2.2.1
 
@@ -945,14 +1014,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`2319def`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2319def8db114c21701b1f7da8970934270d6e84))
 
+### Chores
+
+* chore(release): bump version to v0.0.29 [skip ci] ([`91e634a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/91e634a1173ac4dfe3fb33dcf17a55225adb84b3))
+
 
 ## v0.0.28 (2024-02-17)
 
-### Chores
-
-* chore(release): bump version to v0.0.28 [skip ci] ([`be4a260`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/be4a260038c226ef1832a2576a864a71b5478ede))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -986,14 +1055,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`669c2c3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/669c2c398e4c6314ed859a19a012612fdbd0e6ad))
 
+### Chores
+
+* chore(release): bump version to v0.0.28 [skip ci] ([`be4a260`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/be4a260038c226ef1832a2576a864a71b5478ede))
+
 
 ## v0.0.27 (2024-02-10)
 
-### Chores
-
-* chore(release): bump version to v0.0.27 [skip ci] ([`0d64a27`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0d64a27964369f1705c0c9ef85f8122d4b870667))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump python-semantic-release/python-semantic-release
 
@@ -1027,14 +1096,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`eab3a71`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/eab3a71049b6154c4ea802a146e86603eaa43396))
 
+### Chores
+
+* chore(release): bump version to v0.0.27 [skip ci] ([`0d64a27`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0d64a27964369f1705c0c9ef85f8122d4b870667))
+
 
 ## v0.0.26 (2024-02-03)
 
-### Chores
-
-* chore(release): bump version to v0.0.26 [skip ci] ([`beb55ac`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/beb55acc9b2e8f4e75de49992af5d5fd70ed660e))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump markupsafe from 2.1.4 to 2.1.5
 
@@ -1084,14 +1153,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`0d332fa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0d332fa1a9296ae554ecd196fc6054f57c5bd6c8))
 
+### Chores
+
+* chore(release): bump version to v0.0.26 [skip ci] ([`beb55ac`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/beb55acc9b2e8f4e75de49992af5d5fd70ed660e))
+
 
 ## v0.0.25 (2024-01-27)
 
-### Chores
-
-* chore(release): bump version to v0.0.25 [skip ci] ([`cfde972`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cfde9720ff2e11ea8a50b7a5b896752d9f478d23))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 23.12.1 to 24.1.0
 
@@ -1125,14 +1194,14 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`0a238aa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0a238aa5ceb51bf9f74a3e77c2217a6e75952625))
 
+### Chores
+
+* chore(release): bump version to v0.0.25 [skip ci] ([`cfde972`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cfde9720ff2e11ea8a50b7a5b896752d9f478d23))
+
 
 ## v0.0.24 (2024-01-13)
 
-### Chores
-
-* chore(release): bump version to v0.0.24 [skip ci] ([`a6f32e4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a6f32e42363965ef99936d21e306590ce159dc7f))
-
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump jinja2 from 3.1.2 to 3.1.3
 
@@ -1150,25 +1219,25 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`11a6a36`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/11a6a369ca313ea7bb243a0565cea178a94fd8d9))
 
+### Chores
+
+* chore(release): bump version to v0.0.24 [skip ci] ([`a6f32e4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a6f32e42363965ef99936d21e306590ce159dc7f))
+
 
 ## v0.0.23 (2024-01-11)
+
+### Bug Fixes
+
+* fix(ci): exclude_commit_patterns for Merge branch ([`8e7252d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8e7252d9984fc719f58f8d0333346cb5ac153c35))
 
 ### Chores
 
 * chore(release): bump version to v0.0.23 [skip ci] ([`7cef287`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7cef287ea0b178ff65797a872bcd961ae270a2db))
 
-### Fixes
-
-* fix(ci): exclude_commit_patterns for Merge branch ([`8e7252d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8e7252d9984fc719f58f8d0333346cb5ac153c35))
-
 
 ## v0.0.22 (2024-01-11)
 
-### Chores
-
-* chore(release): bump version to v0.0.22 [skip ci] ([`18484f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/18484f30aad77527bbf527a6e519906c0d5da364))
-
-### Fixes
+### Bug Fixes
 
 * fix(ci): exclude_commit_patterns for Merge pull request ([`b7df053`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b7df053a518c9ecf6f64f2cdea5d22b75acddd86))
 
@@ -1180,10 +1249,14 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`11a6a36`](https://github.
 
 * fix(ci): rename branch to main ([`0371cc9`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0371cc9466d748f40b8f65e3a391292daecb240a))
 
+### Chores
+
+* chore(release): bump version to v0.0.22 [skip ci] ([`18484f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/18484f30aad77527bbf527a6e519906c0d5da364))
+
 
 ## v0.0.21 (2024-01-09)
 
-### Fixes
+### Bug Fixes
 
 * fix: move to python-semantic-release ([`39404ba`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/39404ba3fe025948a47384312bdba928fc736b88))
 
@@ -1199,16 +1272,16 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`11a6a36`](https://github.
 
 ## v0.0.19 (2024-01-06)
 
-### Continuous Integration
-
-* ci: install local package to test it ([`a3c5ec3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a3c5ec367f391cda54b0512443af8fb2ebde4a7a))
-
-### Fixes
+### Bug Fixes
 
 * fix: remove unused files setup.cfg, setup.py and MANIFEST.in
 fix imports ([`da7e705`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/da7e705fe609e019f3a92d9905d8777c548fd601))
 
 * fix: move from pipenv to poetry ([`8b49039`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8b490397c3771c6a3d2330f114178ac5c0a3637d))
+
+### Continuous Integration
+
+* ci: install local package to test it ([`a3c5ec3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a3c5ec367f391cda54b0512443af8fb2ebde4a7a))
 
 ### Unknown
 
@@ -1219,7 +1292,7 @@ fix imports ([`da7e705`](https://github.com/gofrolist/mtg-printable-set-label-ge
 
 ## v0.0.18 (2023-12-25)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 23.12.0 to 23.12.1
 
@@ -1240,7 +1313,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`4e0b795`](https://github.
 
 ## v0.0.17 (2023-12-18)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump actions/setup-node from 4.0.0 to 4.0.1
 
@@ -1260,7 +1333,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`fbc6214`](https://github.
 
 ## v0.0.16 (2023-12-13)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump github/codeql-action from 2 to 3
 
@@ -1297,7 +1370,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`531d468`](https://github.
 
 ## v0.0.15 (2023-12-08)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump actions/setup-python from 4 to 5
 
@@ -1317,7 +1390,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`ea4b4fb`](https://github.
 
 ## v0.0.14 (2023-12-05)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps): bump actions/checkout from 4.1.0 to 4.1.1
 
@@ -1357,7 +1430,7 @@ Signed-off-by: dependabot[bot] <support@github.com> ([`b365cfe`](https://github.
 
 ## v0.0.13 (2023-09-25)
 
-### Fixes
+### Bug Fixes
 
 * fix(deps-dev): bump black from 23.3.0 to 23.9.1
 
