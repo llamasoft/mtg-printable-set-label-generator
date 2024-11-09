@@ -1,6 +1,43 @@
 # CHANGELOG
 
 
+## v0.0.55 (2024-11-09)
+
+### Bug Fixes
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.12.1 to 9.12.2.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.1...v9.12.2)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`1000226`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/10002264565eed015367c0b8d6486b5a5f1c571f))
+
+* fix(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.12.0 to 9.12.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.0...v9.12.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([`e8ca134`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e8ca134c783d5b8e55befd37ff91913bd713b18d))
+
+
 ## v0.0.54 (2024-10-19)
 
 ### Bug Fixes
@@ -68,6 +105,10 @@ updated-dependencies:
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com> ([`3aa46eb`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3aa46eb438f22ad9c1dd61e66c22768ec15711a8))
+
+### Chores
+
+* chore(release): bump version to v0.0.54 [skip ci] ([`07a9de4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/07a9de413979775860d76e557ad5b074d62a6dec))
 
 
 ## v0.0.53 (2024-10-12)
