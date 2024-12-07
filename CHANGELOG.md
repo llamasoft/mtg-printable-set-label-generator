@@ -1,6 +1,31 @@
 # CHANGELOG
 
 
+## v0.0.57 (2024-12-07)
+
+### Bug Fixes
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`fe75ff2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fe75ff29e950fe307a490206cdb6770239282c58))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.14.0 to 9.15.1. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.14.0...v9.15.1)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.56 (2024-11-16)
 
 ### Bug Fixes
@@ -17,9 +42,18 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.2...v9.14.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
+
+### Chores
+
+- **release**: Bump version to v0.0.56 [skip ci]
+  ([`71efb6c`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/71efb6c45dd2c35f3dec96989a1a72a4d7a937f1))
 
 
 ## v0.0.55 (2024-11-09)
@@ -38,7 +72,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.1...v9.12.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -54,7 +92,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.0...v9.12.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -68,6 +110,22 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
+- **deps**: Bump markupsafe from 3.0.1 to 3.0.2
+  ([`52f47a9`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/52f47a9a262903448e598da93906b710ef4dab54))
+
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.1 to 3.0.2. - [Release
+  notes](https://github.com/pallets/markupsafe/releases) -
+  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/markupsafe/compare/3.0.1...3.0.2)
+
+--- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`b9e59d8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b9e59d8ce154b71009358a28357601d7af68cdc1))
 
@@ -80,20 +138,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11.1...v9.12.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-minor
 
-- **deps**: Bump markupsafe from 3.0.1 to 3.0.2
-  ([`52f47a9`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/52f47a9a262903448e598da93906b710ef4dab54))
-
-Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.1 to 3.0.2. - [Release
-  notes](https://github.com/pallets/markupsafe/releases) -
-  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
-  [Commits](https://github.com/pallets/markupsafe/compare/3.0.1...3.0.2)
-
---- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -109,7 +158,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11.0...v9.11.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -125,7 +178,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.10.1...v9.11.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -139,19 +196,19 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps**: Bump python-semantic-release/python-semantic-release
-  ([`bb483aa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/bb483aae7608dd04c57fd4f683c4233d1297c7c1))
+- **deps**: Bump markupsafe from 2.1.5 to 3.0.0
+  ([`1930ac8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/1930ac8eb7c85aced665ab987136bdca8e5aa4fa))
 
-Bumps
-  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
-  from 9.10.0 to 9.10.1. - [Release
-  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
-  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
-  -
-  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.10.0...v9.10.1)
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.5 to 3.0.0. - [Release
+  notes](https://github.com/pallets/markupsafe/releases) -
+  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/markupsafe/compare/2.1.5...3.0.0)
 
---- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -164,33 +221,30 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.0 to 3.0.1. -
   [Commits](https://github.com/pallets/markupsafe/compare/3.0.0...3.0.1)
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-- **deps-dev**: Bump black from 24.8.0 to 24.10.0
-  ([`7ea4ff2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ea4ff26e9b346cd93a6d2ad82a1ca4c23a0f9f8))
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`bb483aa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/bb483aae7608dd04c57fd4f683c4233d1297c7c1))
 
-Bumps [black](https://github.com/psf/black) from 24.8.0 to 24.10.0. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/24.8.0...24.10.0)
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.10.0 to 9.10.1. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.10.0...v9.10.1)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-patch
 
-- **deps**: Bump markupsafe from 2.1.5 to 3.0.0
-  ([`1930ac8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/1930ac8eb7c85aced665ab987136bdca8e5aa4fa))
-
-Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.5 to 3.0.0. - [Release
-  notes](https://github.com/pallets/markupsafe/releases) -
-  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
-  [Commits](https://github.com/pallets/markupsafe/compare/2.1.5...3.0.0)
-
---- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-major ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -206,7 +260,27 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.9.0...v9.10.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 24.8.0 to 24.10.0
+  ([`7ea4ff2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ea4ff26e9b346cd93a6d2ad82a1ca4c23a0f9f8))
+
+Bumps [black](https://github.com/psf/black) from 24.8.0 to 24.10.0. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/24.8.0...24.10.0)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -232,7 +306,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.9...v9.9.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -258,7 +336,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.8...v9.8.9)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -280,8 +362,11 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.2 to 2.2.3. - [Rele
   [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
   [Commits](https://github.com/urllib3/urllib3/compare/2.2.2...2.2.3)
 
---- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production update-type:
-  version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -307,7 +392,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.7...v9.8.8)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -333,7 +422,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.6...v9.8.7)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -355,8 +448,11 @@ Bumps [black](https://github.com/psf/black) from 24.4.2 to 24.8.0. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/24.4.2...24.8.0)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -382,7 +478,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.5...v9.8.6)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -408,7 +508,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.4...v9.8.5)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -430,7 +534,11 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
   [Commits](https://github.com/dependabot/fetch-metadata/compare/v2.1.0...v2.2.0)
 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
-  direct:production update-type: version-update:semver-minor ...
+  direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -446,7 +554,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.3...v9.8.4)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -472,20 +584,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.2...v9.8.3)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-patch
 
-- **deps**: Bump urllib3 from 2.2.1 to 2.2.2
-  ([`5b393d4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b393d4c234d694180d56648489b76a947345cb8))
-
-Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.1 to 2.2.2. - [Release
-  notes](https://github.com/urllib3/urllib3/releases) -
-  [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
-  [Commits](https://github.com/urllib3/urllib3/compare/2.2.1...2.2.2)
-
---- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production update-type:
-  version-update:semver-patch ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -501,7 +604,27 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.1...v9.8.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump urllib3 from 2.2.1 to 2.2.2
+  ([`5b393d4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b393d4c234d694180d56648489b76a947345cb8))
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.1 to 2.2.2. - [Release
+  notes](https://github.com/urllib3/urllib3/releases) -
+  [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/urllib3/urllib3/compare/2.2.1...2.2.2)
+
+--- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -527,7 +650,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.0...v9.8.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -541,19 +668,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps**: Bump requests from 2.32.2 to 2.32.3
-  ([`45f4032`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/45f4032978d8dc9be7150a808d1a6ebc22df0eff))
-
-Bumps [requests](https://github.com/psf/requests) from 2.32.2 to 2.32.3. - [Release
-  notes](https://github.com/psf/requests/releases) -
-  [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md) -
-  [Commits](https://github.com/psf/requests/compare/v2.32.2...v2.32.3)
-
---- updated-dependencies: - dependency-name: requests dependency-type: direct:production
-  update-type: version-update:semver-patch ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`ab0fd4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ab0fd4eae89f1358aae7dcb90a2762e710fcf51a))
 
@@ -566,7 +680,27 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.3...v9.8.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump requests from 2.32.2 to 2.32.3
+  ([`45f4032`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/45f4032978d8dc9be7150a808d1a6ebc22df0eff))
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.2 to 2.32.3. - [Release
+  notes](https://github.com/psf/requests/releases) -
+  [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md) -
+  [Commits](https://github.com/psf/requests/compare/v2.32.2...v2.32.3)
+
+--- updated-dependencies: - dependency-name: requests dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -592,7 +726,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.2...v9.7.3)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -608,7 +746,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.1...v9.7.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -622,6 +764,22 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
+- **deps**: Bump jinja2 from 3.1.3 to 3.1.4
+  ([`6a1d56d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/6a1d56d82c02a75db12287dadb7d0dc8845725e5))
+
+Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.3 to 3.1.4. - [Release
+  notes](https://github.com/pallets/jinja/releases) -
+  [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/jinja/compare/3.1.3...3.1.4)
+
+--- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`9049ad3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9049ad30433994eaa12366984522b77f2b028ff6))
 
@@ -634,20 +792,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.0...v9.7.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-patch
 
-- **deps**: Bump jinja2 from 3.1.3 to 3.1.4
-  ([`6a1d56d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/6a1d56d82c02a75db12287dadb7d0dc8845725e5))
-
-Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.3 to 3.1.4. - [Release
-  notes](https://github.com/pallets/jinja/releases) -
-  [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst) -
-  [Commits](https://github.com/pallets/jinja/compare/3.1.3...3.1.4)
-
---- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production update-type:
-  version-update:semver-patch ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -663,7 +812,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.6.0...v9.7.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -689,7 +842,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.5.0...v9.6.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -703,32 +860,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps-dev**: Bump black from 24.4.1 to 24.4.2
-  ([`aae46e7`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/aae46e737dcda1300e422870d4b088b94edea02c))
-
-Bumps [black](https://github.com/psf/black) from 24.4.1 to 24.4.2. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/24.4.1...24.4.2)
-
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-patch ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
-- **deps-dev**: Bump black from 24.4.0 to 24.4.1
-  ([`e27dd75`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e27dd752ea76c7fdb94bd0f06aa541b92035becb))
-
-Bumps [black](https://github.com/psf/black) from 24.4.0 to 24.4.1. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/24.4.0...24.4.1)
-
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-patch ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0
   ([`e4c6024`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e4c6024acc693be6c283281b33ad92f5313173da))
 
@@ -737,7 +868,11 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
   [Commits](https://github.com/dependabot/fetch-metadata/compare/v2.0.0...v2.1.0)
 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
-  direct:production update-type: version-update:semver-minor ...
+  direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -753,7 +888,43 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.2...v9.5.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 24.4.0 to 24.4.1
+  ([`e27dd75`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e27dd752ea76c7fdb94bd0f06aa541b92035becb))
+
+Bumps [black](https://github.com/psf/black) from 24.4.0 to 24.4.1. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/24.4.0...24.4.1)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 24.4.1 to 24.4.2
+  ([`aae46e7`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/aae46e737dcda1300e422870d4b088b94edea02c))
+
+Bumps [black](https://github.com/psf/black) from 24.4.1 to 24.4.2. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/24.4.1...24.4.2)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -779,7 +950,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.1...v9.4.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -793,19 +968,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps-dev**: Bump black from 24.3.0 to 24.4.0
-  ([`b96c145`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b96c145a18f57ee7cb8fe0d8a8319b8313725093))
-
-Bumps [black](https://github.com/psf/black) from 24.3.0 to 24.4.0. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/24.3.0...24.4.0)
-
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`ebb21f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ebb21f3b01a33c1120700aebedec35b5b67fbea9))
 
@@ -818,7 +980,27 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.0...v9.4.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 24.3.0 to 24.4.0
+  ([`b96c145`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b96c145a18f57ee7cb8fe0d8a8319b8313725093))
+
+Bumps [black](https://github.com/psf/black) from 24.3.0 to 24.4.0. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/24.3.0...24.4.0)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -844,7 +1026,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.3.1...v9.4.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -870,7 +1056,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.3.0...v9.3.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -884,18 +1074,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps**: Bump dependabot/fetch-metadata from 1.7.0 to 2.0.0
-  ([`056c150`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/056c150c3c5d25bd56e327a6391fcd7c97457040))
-
-Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 1.7.0 to 2.0.0.
-  - [Release notes](https://github.com/dependabot/fetch-metadata/releases) -
-  [Commits](https://github.com/dependabot/fetch-metadata/compare/v1.7.0...v2.0.0)
-
---- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
-  direct:production update-type: version-update:semver-major ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump dependabot/fetch-metadata from 1.6.0 to 1.7.0
   ([`fadec1a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fadec1a16d4942aa5beadb2d5ac704d07208b754))
 
@@ -904,7 +1082,27 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
   [Commits](https://github.com/dependabot/fetch-metadata/compare/v1.6.0...v1.7.0)
 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
-  direct:production update-type: version-update:semver-minor ...
+  direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump dependabot/fetch-metadata from 1.7.0 to 2.0.0
+  ([`056c150`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/056c150c3c5d25bd56e327a6391fcd7c97457040))
+
+Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 1.7.0 to 2.0.0.
+  - [Release notes](https://github.com/dependabot/fetch-metadata/releases) -
+  [Commits](https://github.com/dependabot/fetch-metadata/compare/v1.7.0...v2.0.0)
+
+--- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
+  direct:production
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -920,7 +1118,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.2.2...v9.3.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -936,7 +1138,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.2.0...v9.2.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -952,7 +1158,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.1.1...v9.2.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -974,8 +1184,11 @@ Bumps [black](https://github.com/psf/black) from 24.2.0 to 24.3.0. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/24.2.0...24.3.0)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1001,7 +1214,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.1.0...v9.1.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1023,8 +1240,11 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.0 to 2.2.1. - [Rele
   [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
   [Commits](https://github.com/urllib3/urllib3/compare/2.2.0...2.2.1)
 
---- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production update-type:
-  version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1050,7 +1270,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.0.3...v9.1.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1062,8 +1286,11 @@ Bumps [black](https://github.com/psf/black) from 24.1.1 to 24.2.0. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/24.1.1...24.2.0)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1089,7 +1316,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.0.1...v9.0.3)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1105,7 +1336,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v8.7.2...v9.0.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-major ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1128,7 +1363,10 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.4 to 2.1.5. -
   [Commits](https://github.com/pallets/markupsafe/compare/2.1.4...2.1.5)
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1140,8 +1378,11 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.1.0 to 2.2.0. - [Rele
   [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
   [Commits](https://github.com/urllib3/urllib3/compare/2.1.0...2.2.0)
 
---- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1153,8 +1394,11 @@ Bumps [black](https://github.com/psf/black) from 24.1.0 to 24.1.1. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/24.1.0...24.1.1)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1168,19 +1412,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps-dev**: Bump black from 23.12.1 to 24.1.0
-  ([`ed2a9a1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ed2a9a1a8d9f09ce6e4058bdb4296c5dfe045a9d))
-
-Bumps [black](https://github.com/psf/black) from 23.12.1 to 24.1.0. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/23.12.1...24.1.0)
-
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-major ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump markupsafe from 2.1.3 to 2.1.4
   ([`0a238aa`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0a238aa5ceb51bf9f74a3e77c2217a6e75952625))
 
@@ -1190,7 +1421,26 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.3 to 2.1.4. -
   [Commits](https://github.com/pallets/markupsafe/compare/2.1.3...2.1.4)
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 23.12.1 to 24.1.0
+  ([`ed2a9a1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ed2a9a1a8d9f09ce6e4058bdb4296c5dfe045a9d))
+
+Bumps [black](https://github.com/psf/black) from 23.12.1 to 24.1.0. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/23.12.1...24.1.0)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1212,8 +1462,11 @@ Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.2 to 3.1.3. - [Release
   [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst) -
   [Commits](https://github.com/pallets/jinja/compare/3.1.2...3.1.3)
 
---- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production update-type:
-  version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1240,20 +1493,20 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **ci**: Exclude_commit_patterns for Merge pull request
-  ([`b7df053`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b7df053a518c9ecf6f64f2cdea5d22b75acddd86))
-
 - **ci**: Add persist-credentials to checkout release pipeline
   ([`0859d52`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0859d52d4934886e7a9d9886b38653da24864556))
 
-- **ci**: Update github_token for python-semantic-release
-  ([`e288392`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2883922b87d083fb4f54a3f24caba6fb5621ddb))
+- **ci**: Exclude_commit_patterns for Merge pull request
+  ([`b7df053`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/b7df053a518c9ecf6f64f2cdea5d22b75acddd86))
 
 - **ci**: Fix version_toml for semantic_release
   ([`da9ab8b`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/da9ab8bf9692615990afdf6977cefaacb83b320d))
 
 - **ci**: Rename branch to main
   ([`0371cc9`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0371cc9466d748f40b8f65e3a391292daecb240a))
+
+- **ci**: Update github_token for python-semantic-release
+  ([`e288392`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2883922b87d083fb4f54a3f24caba6fb5621ddb))
 
 ### Chores
 
@@ -1265,11 +1518,11 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- Move to python-semantic-release
-  ([`39404ba`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/39404ba3fe025948a47384312bdba928fc736b88))
-
 - Bump version
   ([`1a1e6be`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/1a1e6be03bd81c17db2b7d338dba30af21f3e456))
+
+- Move to python-semantic-release
+  ([`39404ba`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/39404ba3fe025948a47384312bdba928fc736b88))
 
 
 ## v0.0.20 (2024-01-06)
@@ -1284,11 +1537,11 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- Remove unused files setup.cfg, setup.py and MANIFEST.in
-  ([`da7e705`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/da7e705fe609e019f3a92d9905d8777c548fd601))
-
 - Move from pipenv to poetry
   ([`8b49039`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8b490397c3771c6a3d2330f114178ac5c0a3637d))
+
+- Remove unused files setup.cfg, setup.py and MANIFEST.in
+  ([`da7e705`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/da7e705fe609e019f3a92d9905d8777c548fd601))
 
 ### Continuous Integration
 
@@ -1308,8 +1561,11 @@ Bumps [black](https://github.com/psf/black) from 23.12.0 to 23.12.1. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/23.12.0...23.12.1)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-patch ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1326,7 +1582,10 @@ Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4.0.0 to 
   [Commits](https://github.com/actions/setup-node/compare/v4.0.0...v4.0.1)
 
 --- updated-dependencies: - dependency-name: actions/setup-node dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1344,7 +1603,10 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 2 to 
   [Commits](https://github.com/github/codeql-action/compare/v2...v3)
 
 --- updated-dependencies: - dependency-name: github/codeql-action dependency-type: direct:production
-  update-type: version-update:semver-major ...
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1356,8 +1618,11 @@ Bumps [black](https://github.com/psf/black) from 23.11.0 to 23.12.0. - [Release
   [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
   [Commits](https://github.com/psf/black/compare/23.11.0...23.12.0)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1374,7 +1639,10 @@ Bumps [actions/setup-python](https://github.com/actions/setup-python) from 4 to 
   [Commits](https://github.com/actions/setup-python/compare/v4...v5)
 
 --- updated-dependencies: - dependency-name: actions/setup-python dependency-type: direct:production
-  update-type: version-update:semver-major ...
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1392,7 +1660,10 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.0 to 4.1.
   [Commits](https://github.com/actions/checkout/compare/v4.1.0...v4.1.1)
 
 --- updated-dependencies: - dependency-name: actions/checkout dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1404,7 +1675,10 @@ Bumps [actions/setup-node](https://github.com/actions/setup-node) from 3.8.1 to 
   [Commits](https://github.com/actions/setup-node/compare/v3.8.1...v4.0.0)
 
 --- updated-dependencies: - dependency-name: actions/setup-node dependency-type: direct:production
-  update-type: version-update:semver-major ...
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1413,42 +1687,19 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Bug Fixes
 
-- **deps-dev**: Bump black from 23.3.0 to 23.9.1
-  ([`55692a3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/55692a34401a194635a681d85fad6986b3ecef01))
+- **deps**: Bump actions/checkout from 4.0.0 to 4.1.0
+  ([`19a1050`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/19a105062e5280d694fcd94fc053ea15a877804b))
 
-Bumps [black](https://github.com/psf/black) from 23.3.0 to 23.9.1. - [Release
-  notes](https://github.com/psf/black/releases) -
-  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
-  [Commits](https://github.com/psf/black/compare/23.3.0...23.9.1)
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.0.0 to 4.1.0. - [Release
+  notes](https://github.com/actions/checkout/releases) -
+  [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md) -
+  [Commits](https://github.com/actions/checkout/compare/v4.0.0...v4.1.0)
 
---- updated-dependencies: - dependency-name: black dependency-type: direct:development update-type:
-  version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: actions/checkout dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-minor
 
-- **deps**: Bump requests from 2.30.0 to 2.31.0
-  ([`60f5a72`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/60f5a725ae6dae9b8f5af662bc8a4cf07f7b19a5))
-
-Bumps [requests](https://github.com/psf/requests) from 2.30.0 to 2.31.0. - [Release
-  notes](https://github.com/psf/requests/releases) -
-  [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md) -
-  [Commits](https://github.com/psf/requests/compare/v2.30.0...v2.31.0)
-
---- updated-dependencies: - dependency-name: requests dependency-type: direct:production
-  update-type: version-update:semver-minor ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
-- **deps**: Bump markupsafe from 2.0.1 to 2.1.3
-  ([`23bcf01`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/23bcf01373af107e4249fca4f084c395162b91c2))
-
-Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.0.1 to 2.1.3. - [Release
-  notes](https://github.com/pallets/markupsafe/releases) -
-  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
-  [Commits](https://github.com/pallets/markupsafe/compare/2.0.1...2.1.3)
-
---- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1461,20 +1712,58 @@ Bumps [cairosvg](https://github.com/Kozea/CairoSVG) from 2.7.0 to 2.7.1. - [Rele
   [Commits](https://github.com/Kozea/CairoSVG/compare/2.7.0...2.7.1)
 
 --- updated-dependencies: - dependency-name: cairosvg dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-- **deps**: Bump actions/checkout from 4.0.0 to 4.1.0
-  ([`19a1050`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/19a105062e5280d694fcd94fc053ea15a877804b))
+- **deps**: Bump markupsafe from 2.0.1 to 2.1.3
+  ([`23bcf01`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/23bcf01373af107e4249fca4f084c395162b91c2))
 
-Bumps [actions/checkout](https://github.com/actions/checkout) from 4.0.0 to 4.1.0. - [Release
-  notes](https://github.com/actions/checkout/releases) -
-  [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md) -
-  [Commits](https://github.com/actions/checkout/compare/v4.0.0...v4.1.0)
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.0.1 to 2.1.3. - [Release
+  notes](https://github.com/pallets/markupsafe/releases) -
+  [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/markupsafe/compare/2.0.1...2.1.3)
 
---- updated-dependencies: - dependency-name: actions/checkout dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+--- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump requests from 2.30.0 to 2.31.0
+  ([`60f5a72`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/60f5a725ae6dae9b8f5af662bc8a4cf07f7b19a5))
+
+Bumps [requests](https://github.com/psf/requests) from 2.30.0 to 2.31.0. - [Release
+  notes](https://github.com/psf/requests/releases) -
+  [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md) -
+  [Commits](https://github.com/psf/requests/compare/v2.30.0...v2.31.0)
+
+--- updated-dependencies: - dependency-name: requests dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump black from 23.3.0 to 23.9.1
+  ([`55692a3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/55692a34401a194635a681d85fad6986b3ecef01))
+
+Bumps [black](https://github.com/psf/black) from 23.3.0 to 23.9.1. - [Release
+  notes](https://github.com/psf/black/releases) -
+  [Changelog](https://github.com/psf/black/blob/main/CHANGES.md) -
+  [Commits](https://github.com/psf/black/compare/23.3.0...23.9.1)
+
+--- updated-dependencies: - dependency-name: black dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
