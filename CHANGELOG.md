@@ -1,6 +1,43 @@
 # CHANGELOG
 
 
+## v0.0.59 (2024-12-28)
+
+### Bug Fixes
+
+- **deps**: Bump jinja2 from 3.1.4 to 3.1.5
+  ([`79e680c`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/79e680cd36e1ede286cf7ad6f126edcf22b13442))
+
+Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.4 to 3.1.5. - [Release
+  notes](https://github.com/pallets/jinja/releases) -
+  [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/jinja/compare/3.1.4...3.1.5)
+
+--- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump urllib3 from 2.2.3 to 2.3.0
+  ([`89eef39`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/89eef39ee63a5fc7626903910fa4764c3364d423))
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.3 to 2.3.0. - [Release
+  notes](https://github.com/urllib3/urllib3/releases) -
+  [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/urllib3/urllib3/compare/2.2.3...2.3.0)
+
+--- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.58 (2024-12-21)
 
 ### Bug Fixes
@@ -24,6 +61,11 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
+
+### Chores
+
+- **release**: Bump version to v0.0.58 [skip ci]
+  ([`2153792`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2153792a68473b60bf9a42b2b2ed6335dc1cf3fa))
 
 
 ## v0.0.57 (2024-12-07)
