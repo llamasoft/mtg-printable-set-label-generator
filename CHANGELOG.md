@@ -1,6 +1,31 @@
 # CHANGELOG
 
 
+## v0.0.60 (2025-01-18)
+
+### Bug Fixes
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`8ea4934`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8ea4934c0739f512bf9b278527a90b6a91de7f3a))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.15.2 to 9.16.1. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.15.2...v9.16.1)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.59 (2024-12-28)
 
 ### Bug Fixes
@@ -62,11 +87,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.58 [skip ci]
-  ([`2153792`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2153792a68473b60bf9a42b2b2ed6335dc1cf3fa))
-
 
 ## v0.0.57 (2024-12-07)
 
@@ -92,11 +112,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.57 [skip ci]
-  ([`87655dc`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/87655dcd75e3c98bcee81f9e32a3a24441979c0e))
-
 
 ## v0.0.56 (2024-11-16)
 
@@ -121,11 +136,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.56 [skip ci]
-  ([`71efb6c`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/71efb6c45dd2c35f3dec96989a1a72a4d7a937f1))
 
 
 ## v0.0.55 (2024-11-09)
@@ -171,11 +181,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.55 [skip ci]
-  ([`3416ca0`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3416ca0ff61e16bfb08270f59626c20b848bf83c))
 
 
 ## v0.0.54 (2024-10-19)
@@ -257,11 +262,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.54 [skip ci]
-  ([`07a9de4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/07a9de413979775860d76e557ad5b074d62a6dec))
 
 
 ## v0.0.53 (2024-10-12)
@@ -356,11 +356,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.53 [skip ci]
-  ([`eaab2ae`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/eaab2ae539fbe529d92cc05058dc3db5a6c1cc63))
-
 
 ## v0.0.52 (2024-10-05)
 
@@ -385,11 +380,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.52 [skip ci]
-  ([`fae168d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fae168d6028ff8cfae66a1764cbf877617ec5c80))
 
 
 ## v0.0.51 (2024-09-28)
@@ -416,11 +406,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.51 [skip ci]
-  ([`2b595ec`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/2b595ec1716d1750e83c3bcbca8bc599885bb64f))
-
 
 ## v0.0.50 (2024-09-14)
 
@@ -441,11 +426,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.50 [skip ci]
-  ([`7ff60b5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7ff60b55aed280caa56bee5ba2d1fcf94c75c894))
 
 
 ## v0.0.49 (2024-09-07)
@@ -472,11 +452,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.49 [skip ci]
-  ([`a3d89d8`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a3d89d855324da6c1b7c6d5563fa0ed100ab9acc))
-
 
 ## v0.0.48 (2024-08-24)
 
@@ -502,11 +477,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.48 [skip ci]
-  ([`9607cd4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9607cd46613e551498660a8a7f7943e6fac12c2e))
-
 
 ## v0.0.47 (2024-08-03)
 
@@ -527,11 +497,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.47 [skip ci]
-  ([`cf46c0f`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cf46c0ffdadf0e4198a010767a857bd291985e04))
 
 
 ## v0.0.46 (2024-07-27)
@@ -558,11 +523,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.46 [skip ci]
-  ([`fc88af5`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fc88af5ab79f7172b5cd3cf0fb11336a1954f0ad))
-
 
 ## v0.0.45 (2024-07-13)
 
@@ -587,11 +547,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.45 [skip ci]
-  ([`fefdffb`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/fefdffba94bd295b484a2d8739f512fb541ea7c2))
 
 
 ## v0.0.44 (2024-07-06)
@@ -633,11 +588,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.44 [skip ci]
-  ([`e270fdf`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e270fdfa1f8be7d46589092b212f19fccff543e2))
 
 
 ## v0.0.43 (2024-06-22)
@@ -700,11 +650,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.43 [skip ci]
-  ([`d9a4004`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d9a4004844d72f7c39f41f0eadc21ae37a6327b0))
-
 
 ## v0.0.42 (2024-06-08)
 
@@ -729,11 +674,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.42 [skip ci]
-  ([`e2adea1`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2adea1ac0c4d4472410e802dc14a89012ff2dc1))
 
 
 ## v0.0.41 (2024-06-01)
@@ -775,11 +715,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.41 [skip ci]
-  ([`ff2e1c2`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ff2e1c20c01bd9665664c56268b9cb0dae6e2b1e))
 
 
 ## v0.0.40 (2024-05-18)
@@ -825,11 +760,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.40 [skip ci]
-  ([`5679280`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/567928052bef7fc93d1c9f3ca4123271a703ce3a))
 
 
 ## v0.0.39 (2024-05-11)
@@ -892,11 +822,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.39 [skip ci]
-  ([`44496b4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/44496b478d6e3e6cfb6ba3d264318e3deed62cff))
-
 
 ## v0.0.38 (2024-05-04)
 
@@ -921,11 +846,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.38 [skip ci]
-  ([`d2ab817`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d2ab81778cbfdfc3cc79801cce67b1bf86726748))
 
 
 ## v0.0.37 (2024-04-27)
@@ -1000,11 +920,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.37 [skip ci]
-  ([`3d1783a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/3d1783aa5c560d9ac688d293e989bfdeb85759a9))
-
 
 ## v0.0.36 (2024-04-20)
 
@@ -1029,11 +944,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.36 [skip ci]
-  ([`5f45c4e`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5f45c4eb8be2837781917ff89961c9807c965851))
 
 
 ## v0.0.35 (2024-04-13)
@@ -1076,11 +986,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.35 [skip ci]
-  ([`dea8771`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/dea87715dd979067765ea49e59613e79c12e861a))
-
 
 ## v0.0.34 (2024-04-06)
 
@@ -1106,11 +1011,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.34 [skip ci]
-  ([`5b5a856`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/5b5a8561745e744730ce8141125edb728800db94))
-
 
 ## v0.0.33 (2024-03-30)
 
@@ -1135,11 +1035,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.33 [skip ci]
-  ([`a76b185`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a76b185afe8d7efed0c7e7a7b2a4e141ed8f6c39))
 
 
 ## v0.0.32 (2024-03-23)
@@ -1238,11 +1133,6 @@ update-type: version-update:semver-minor
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.32 [skip ci]
-  ([`a17af81`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a17af81b9dbf6bb07d9c9fa5790b0aa91d54fb2e))
-
 
 ## v0.0.31 (2024-03-16)
 
@@ -1263,11 +1153,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.31 [skip ci]
-  ([`9e0af57`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/9e0af57328ffa56dbfe549177e9a23f5485957c3))
 
 
 ## v0.0.30 (2024-03-02)
@@ -1294,11 +1179,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.30 [skip ci]
-  ([`376d089`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/376d089eb77399a4c0510a3fe3388a8c508c3321))
-
 
 ## v0.0.29 (2024-02-24)
 
@@ -1319,11 +1199,6 @@ update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.29 [skip ci]
-  ([`91e634a`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/91e634a1173ac4dfe3fb33dcf17a55225adb84b3))
 
 
 ## v0.0.28 (2024-02-17)
@@ -1365,11 +1240,6 @@ update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.28 [skip ci]
-  ([`be4a260`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/be4a260038c226ef1832a2576a864a71b5478ede))
 
 
 ## v0.0.27 (2024-02-10)
@@ -1415,11 +1285,6 @@ update-type: version-update:semver-major
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
-
-### Chores
-
-- **release**: Bump version to v0.0.27 [skip ci]
-  ([`0d64a27`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/0d64a27964369f1705c0c9ef85f8122d4b870667))
 
 
 ## v0.0.26 (2024-02-03)
@@ -1474,11 +1339,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.26 [skip ci]
-  ([`beb55ac`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/beb55acc9b2e8f4e75de49992af5d5fd70ed660e))
-
 
 ## v0.0.25 (2024-01-27)
 
@@ -1516,11 +1376,6 @@ update-type: version-update:semver-major
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.25 [skip ci]
-  ([`cfde972`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/cfde9720ff2e11ea8a50b7a5b896752d9f478d23))
-
 
 ## v0.0.24 (2024-01-13)
 
@@ -1542,11 +1397,6 @@ update-type: version-update:semver-patch
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
-### Chores
-
-- **release**: Bump version to v0.0.24 [skip ci]
-  ([`a6f32e4`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/a6f32e42363965ef99936d21e306590ce159dc7f))
-
 
 ## v0.0.23 (2024-01-11)
 
@@ -1554,11 +1404,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 - **ci**: Exclude_commit_patterns for Merge branch
   ([`8e7252d`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/8e7252d9984fc719f58f8d0333346cb5ac153c35))
-
-### Chores
-
-- **release**: Bump version to v0.0.23 [skip ci]
-  ([`7cef287`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/7cef287ea0b178ff65797a872bcd961ae270a2db))
 
 
 ## v0.0.22 (2024-01-11)
@@ -1579,11 +1424,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 - **ci**: Update github_token for python-semantic-release
   ([`e288392`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/e2883922b87d083fb4f54a3f24caba6fb5621ddb))
-
-### Chores
-
-- **release**: Bump version to v0.0.22 [skip ci]
-  ([`18484f3`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/18484f30aad77527bbf527a6e519906c0d5da364))
 
 
 ## v0.0.21 (2024-01-09)
