@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v0.0.61 (2025-01-25)
+
+### Bug Fixes
+
+- **deps**: Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0
+  ([`05f676b`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/05f676b22429cc2f4f00c48cfae85dab31f91cab))
+
+Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 2.2.0 to 2.3.0.
+  - [Release notes](https://github.com/dependabot/fetch-metadata/releases) -
+  [Commits](https://github.com/dependabot/fetch-metadata/compare/v2.2.0...v2.3.0)
+
+--- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
+  direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.60 (2025-01-18)
 
 ### Bug Fixes
