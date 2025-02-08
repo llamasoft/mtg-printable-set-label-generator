@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v0.0.63 (2025-02-08)
+
+### Bug Fixes
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`61f1773`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/61f1773246b0e1d04866ffe1b65d77d3125b3183))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.17.0 to 9.18.0. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.17.0...v9.18.0)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor ...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.62 (2025-02-01)
 
 ### Bug Fixes
@@ -19,9 +42,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -35,9 +56,7 @@ Bumps [black](https://github.com/psf/black) from 24.10.0 to 25.1.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -56,9 +75,7 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
   direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -81,9 +98,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -102,9 +117,7 @@ Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.4 to 3.1.5. - [Release
 
 --- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -118,9 +131,7 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.3 to 2.3.0. - [Rele
 
 --- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -143,9 +154,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -168,9 +177,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -193,9 +200,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -218,9 +223,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -238,9 +241,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -259,9 +260,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.1 to 3.0.2. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -279,9 +278,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -299,9 +296,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -319,9 +314,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -340,9 +333,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.5 to 3.0.0. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -356,9 +347,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 3.0.0 to 3.0.1. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -376,9 +365,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -396,9 +383,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -412,9 +397,7 @@ Bumps [black](https://github.com/psf/black) from 24.8.0 to 24.10.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -437,9 +420,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -462,9 +443,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -483,9 +462,7 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.2 to 2.2.3. - [Rele
 
 --- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -508,9 +485,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -533,9 +508,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -554,9 +527,7 @@ Bumps [black](https://github.com/psf/black) from 24.4.2 to 24.8.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -579,9 +550,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -604,9 +573,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -625,9 +592,7 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
   direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -645,9 +610,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -670,9 +633,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -690,9 +651,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -706,9 +665,7 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.1 to 2.2.2. - [Rele
 
 --- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -731,9 +688,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -756,9 +711,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -772,9 +725,7 @@ Bumps [requests](https://github.com/psf/requests) from 2.32.2 to 2.32.3. - [Rele
 
 --- updated-dependencies: - dependency-name: requests dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -797,9 +748,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -817,9 +766,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -838,9 +785,7 @@ Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.3 to 3.1.4. - [Release
 
 --- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -858,9 +803,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -878,9 +821,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -903,9 +844,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -924,9 +863,7 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
   direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -944,9 +881,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -960,9 +895,7 @@ Bumps [black](https://github.com/psf/black) from 24.4.0 to 24.4.1. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -976,9 +909,7 @@ Bumps [black](https://github.com/psf/black) from 24.4.1 to 24.4.2. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1001,9 +932,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1026,9 +955,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1042,9 +969,7 @@ Bumps [black](https://github.com/psf/black) from 24.3.0 to 24.4.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1067,9 +992,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1092,9 +1015,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1113,9 +1034,7 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
   direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1129,9 +1048,7 @@ Bumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) 
 --- updated-dependencies: - dependency-name: dependabot/fetch-metadata dependency-type:
   direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1149,9 +1066,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1169,9 +1084,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1189,9 +1102,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1210,9 +1121,7 @@ Bumps [black](https://github.com/psf/black) from 24.2.0 to 24.3.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1235,9 +1144,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1256,9 +1163,7 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.0 to 2.2.1. - [Rele
 
 --- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1281,9 +1186,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1297,9 +1200,7 @@ Bumps [black](https://github.com/psf/black) from 24.1.1 to 24.2.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1322,9 +1223,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1342,9 +1241,7 @@ Bumps
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
   dependency-type: direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1363,9 +1260,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.4 to 2.1.5. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1379,9 +1274,7 @@ Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.1.0 to 2.2.0. - [Rele
 
 --- updated-dependencies: - dependency-name: urllib3 dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1395,9 +1288,7 @@ Bumps [black](https://github.com/psf/black) from 24.1.0 to 24.1.1. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1416,9 +1307,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.3 to 2.1.4. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1432,9 +1321,7 @@ Bumps [black](https://github.com/psf/black) from 23.12.1 to 24.1.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1453,9 +1340,7 @@ Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.2 to 3.1.3. - [Release
 
 --- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1537,9 +1422,7 @@ Bumps [black](https://github.com/psf/black) from 23.12.0 to 23.12.1. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1557,9 +1440,7 @@ Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4.0.0 to 
 
 --- updated-dependencies: - dependency-name: actions/setup-node dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1578,9 +1459,7 @@ Bumps [github/codeql-action](https://github.com/github/codeql-action) from 2 to 
 
 --- updated-dependencies: - dependency-name: github/codeql-action dependency-type: direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1594,9 +1473,7 @@ Bumps [black](https://github.com/psf/black) from 23.11.0 to 23.12.0. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1614,9 +1491,7 @@ Bumps [actions/setup-python](https://github.com/actions/setup-python) from 4 to 
 
 --- updated-dependencies: - dependency-name: actions/setup-python dependency-type: direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1635,9 +1510,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.1.0 to 4.1.
 
 --- updated-dependencies: - dependency-name: actions/checkout dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1650,9 +1523,7 @@ Bumps [actions/setup-node](https://github.com/actions/setup-node) from 3.8.1 to 
 
 --- updated-dependencies: - dependency-name: actions/setup-node dependency-type: direct:production
 
-update-type: version-update:semver-major
-
-...
+update-type: version-update:semver-major ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1671,9 +1542,7 @@ Bumps [actions/checkout](https://github.com/actions/checkout) from 4.0.0 to 4.1.
 
 --- updated-dependencies: - dependency-name: actions/checkout dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1687,9 +1556,7 @@ Bumps [cairosvg](https://github.com/Kozea/CairoSVG) from 2.7.0 to 2.7.1. - [Rele
 
 --- updated-dependencies: - dependency-name: cairosvg dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1703,9 +1570,7 @@ Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.0.1 to 2.1.3. -
 
 --- updated-dependencies: - dependency-name: markupsafe dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1719,9 +1584,7 @@ Bumps [requests](https://github.com/psf/requests) from 2.30.0 to 2.31.0. - [Rele
 
 --- updated-dependencies: - dependency-name: requests dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -1735,9 +1598,7 @@ Bumps [black](https://github.com/psf/black) from 23.3.0 to 23.9.1. - [Release
 
 --- updated-dependencies: - dependency-name: black dependency-type: direct:development
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
