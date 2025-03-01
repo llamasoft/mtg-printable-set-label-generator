@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v0.0.66 (2025-03-01)
+
+### Bug Fixes
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`d725579`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/d725579fc704e4ee39ac10694399d2710792c001))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.20.0 to 9.21.0. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.rst)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.20.0...v9.21.0)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor ...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.65 (2025-02-22)
 
 ### Bug Fixes
