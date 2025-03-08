@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.0.67 (2025-03-08)
+
+### Bug Fixes
+
+- **deps**: Bump jinja2 from 3.1.5 to 3.1.6
+  ([`ef2caff`](https://github.com/gofrolist/mtg-printable-set-label-generator/commit/ef2caffd87773ff426c1774ff0c215abec3c3a34))
+
+Bumps [jinja2](https://github.com/pallets/jinja) from 3.1.5 to 3.1.6. - [Release
+  notes](https://github.com/pallets/jinja/releases) -
+  [Changelog](https://github.com/pallets/jinja/blob/main/CHANGES.rst) -
+  [Commits](https://github.com/pallets/jinja/compare/3.1.5...3.1.6)
+
+--- updated-dependencies: - dependency-name: jinja2 dependency-type: direct:production
+
+update-type: version-update:semver-patch ...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v0.0.66 (2025-03-01)
 
 ### Bug Fixes
