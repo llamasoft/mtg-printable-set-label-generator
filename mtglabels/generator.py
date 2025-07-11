@@ -390,6 +390,11 @@ def parse_arguments():
         help="Name of template file to use",
     )
     parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose log output",
+    )
+    parser.add_argument(
         "sets",
         nargs="*",
         help=(
@@ -410,6 +415,8 @@ def main():
 
     try:
         args = parse_arguments()
+        if args.verbose:
+            log.setLevel(logging.DEBUG)
         generator = LabelGenerator(
             args.page_width,
             args.page_height,
