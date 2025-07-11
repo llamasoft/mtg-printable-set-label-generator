@@ -52,9 +52,6 @@ class LabelGenerator:
     # Default output directory for generated labels
     DEFAULT_OUTPUT_DIR = Path.cwd() / "output"
 
-    # Label templates
-    LABEL_TEMPLATE_FILENAME = "labels.svg"
-
     # Millimeter decimal precision
     PRECISION = 1
     SCALE = 10 ** PRECISION
@@ -156,7 +153,7 @@ class LabelGenerator:
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
 
-    def generate_labels(self, sets=None):
+    def generate_labels(self, template, sets=None):
         """
         Generate the MTG labels.
 
@@ -176,10 +173,17 @@ class LabelGenerator:
             for i in range(0, len(labels), self.labels_per_sheet)
         ]
 
-        template_name = self.LABEL_TEMPLATE_FILENAME  # Use the defined constant
-
         ENV.filters["mm"] = lambda mm: round(mm * self.SCALE)
-        template = ENV.get_template(template_name)
+        try:
+            template = ENV.get_template(template)
+        except jinja2.TemplateNotFound:
+            log.error(f"Template not found: {template}")
+            template_list = "\n".join(
+                ("  " + t) for t in ENV.list_templates()
+            )
+            log.error(f"Available templates:\n{template_list}")
+            return
+
         for batch in label_batches:
             output = template.render(
                 labels=batch,
@@ -380,6 +384,12 @@ def parse_arguments():
         help="Number of rows of labels on a single sheet",
     )
     parser.add_argument(
+        "--template",
+        type=str,
+        default="address_labels.svg.jinja",
+        help="Name of template file to use",
+    )
+    parser.add_argument(
         "sets",
         nargs="*",
         help=(
@@ -411,7 +421,10 @@ def main():
             args.label_rows,
             output_dir=args.output_dir
         )
-        generator.generate_labels(args.sets)
+        generator.generate_labels(
+            template=args.template,
+            sets=args.sets,
+        )
     except requests.exceptions.RequestException as e:
         log.error("Error occurred while making a request: %s", str(e))
     except Exception as e:
