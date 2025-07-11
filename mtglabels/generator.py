@@ -266,9 +266,9 @@ class LabelGenerator:
         labels = []
         set_data = self.get_set_data()
 
-        for label_num, exp in enumerate(reversed(set_data)):
-            name = config.RENAME_SETS.get(exp["name"], exp["name"])
-            icon_url = exp["icon_svg_uri"]
+        for label_num, set_info in enumerate(reversed(set_data)):
+            label = set_info.copy()
+            icon_url = set_info["icon_svg_uri"]
             filename = Path(icon_url).name.split("?")[0]
             temp_path = self.tmp_svg_dir / filename
             file_path = self.output_dir / filename
@@ -291,18 +291,13 @@ class LabelGenerator:
 
             label_column = (label_num % self.labels_per_sheet) % self.label_columns
             label_row = (label_num % self.labels_per_sheet) // self.label_columns
-            label_x = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
-            label_y = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
-            labels.append({
-                "name": name,
-                "code": exp["code"],
-                "released_at": datetime.strptime(
-                    exp["released_at"], "%Y-%m-%d"
-                ).date(),
-                "icon_filename": icon_filename,
-                "x": label_x,
-                "y": label_y,
-            })
+
+            label["name"] = config.RENAME_SETS.get(set_info["name"], set_info["name"])
+            label["released_at"] = datetime.strptime(set_info["released_at"], "%Y-%m-%d").date()
+            label["icon_filename"] = icon_filename
+            label["x"] = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
+            label["y"] = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
+            labels.append(label)
 
         return labels
 
