@@ -101,7 +101,7 @@ class LabelGenerator:
 
         self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
 
-        self.tmp_svg_dir = None
+        self.temp_dir = None
         self.setup_directories()
 
     @property
@@ -153,8 +153,9 @@ class LabelGenerator:
 
     def setup_directories(self):
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.tmp_svg_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
-        self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
+        self.temp_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
+        self.temp_dir.mkdir(parents=True, exist_ok=True)
+        log.debug(f"Using cache directory: {self.temp_dir}")
 
     def generate_labels(
         self,
@@ -179,6 +180,7 @@ class LabelGenerator:
 
         if not set_data:
             set_data = self.get_set_data()
+            set_data.sort(key=lambda s: s.get("released_at"))
 
         if not set_codes:
             # If no sets are specified, use the config's default filters.
@@ -212,6 +214,7 @@ class LabelGenerator:
             log.error(f"Available templates:\n{template_list}")
             return
 
+        label_pages = []
         for page, batch in enumerate(label_batches, start=1):
             output = template.render(
                 labels=batch,
@@ -241,8 +244,9 @@ class LabelGenerator:
             cairosvg.svg2pdf(
                 url=str(outfile_svg), write_to=str(outfile_pdf), unsafe=True
             )
+            label_pages.append(outfile_pdf)
 
-        combine_pdfs(self.output_dir)
+        self.combine_pdfs(label_pages, self.output_dir / "combined_labels.pdf")
 
     def get_set_data(self) -> list[dict]:
         """
@@ -309,29 +313,8 @@ class LabelGenerator:
             raise ValueError(f"Skip count must be less than {self.labels_per_sheet}")
 
         labels = []
-        for label_num, set_info in enumerate(reversed(set_data), start=skip):
+        for label_num, set_info in enumerate(set_data, start=skip):
             label = set_info.copy()
-            icon_url = set_info["icon_svg_uri"]
-            filename = Path(icon_url).name.split("?")[0]
-            temp_path = self.tmp_svg_dir / filename
-            file_path = self.output_dir / filename
-
-            icon_filename = filename
-            if temp_path.exists() or file_path.exists():
-                log.debug(f"Skipping download. File already exists: {icon_url}")
-            else:
-                try:
-                    response = session.get(icon_url)
-                    response.raise_for_status()
-                    with temp_path.open("wb") as file:
-                        file.write(response.content)
-                except requests.exceptions.RequestException as e:
-                    log.exception(f"Failed to download file: {icon_url}")
-                    icon_filename = None
-
-            if icon_filename is not None and not file_path.exists():
-                shutil.copy(temp_path, file_path)
-
             label_column = (label_num % self.labels_per_sheet) % self.label_columns
             label_row = (label_num % self.labels_per_sheet) // self.label_columns
 
@@ -340,28 +323,48 @@ class LabelGenerator:
                 label["released_at"] = datetime.strptime(label["released_at"], "%Y-%m-%d").date()
             except (KeyError, ValueError):
                 label["released_at"] = None
-            label["icon_filename"] = icon_filename
+            label["icon_filename"] = self._download_image(set_info.get("icon_svg_uri"))
             label["x"] = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
             label["y"] = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
             labels.append(label)
 
         return labels
 
+    def _download_image(self, image_url: str) -> Optional[str]:
+        """Downloads an image and returns the local output file name."""
+        if not image_url:
+            return None
 
-def combine_pdfs(output_dir):
-    pdf_merger = PyPDF2.PdfMerger()
+        file_name = Path(image_url).name.split("?")[0]
+        cache_path = self.temp_dir / file_name
+        final_path = self.output_dir / file_name
 
-    # List all PDF files in the output directory that match your naming pattern
-    pdf_files = sorted(output_dir.glob("labels-*.pdf"))
+        if final_path.exists():
+            log.debug(f"Skipping download. File already exists: {file_name}")
+            return file_name
 
-    for pdf_file in pdf_files:
-        pdf_merger.append(str(pdf_file))
+        if not cache_path.exists():
+            try:
+                response = session.get(image_url)
+                response.raise_for_status()
+                with cache_path.open("wb") as file:
+                    file.write(response.content)
+            except requests.exceptions.RequestException as e:
+                log.exception(f"Failed to download file: {image_url}")
+                return None
 
-    # Output combined PDF
-    combined_pdf_path = output_dir / "combined_labels.pdf"
-    with combined_pdf_path.open("wb") as combined_pdf:
-        pdf_merger.write(combined_pdf)
-        log.info(f"Writing {combined_pdf_path}...")
+        shutil.copy(cache_path, final_path)
+        return file_name
+
+    @staticmethod
+    def combine_pdfs(input_paths: list[Path], output_path: Path):
+        pdf_merger = PyPDF2.PdfMerger()
+        for pdf_file in input_paths:
+            pdf_merger.append(str(pdf_file))
+
+        with output_path.open("wb") as combined_pdf:
+            pdf_merger.write(combined_pdf)
+            log.info(f"Writing {output_path}...")
 
 
 def parse_arguments():
