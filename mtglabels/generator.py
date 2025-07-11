@@ -1,6 +1,7 @@
 import argparse
 import logging
 import shutil
+import tempfile
 from datetime import datetime
 from pathlib import Path
 
@@ -150,7 +151,7 @@ class LabelGenerator:
 
     def setup_directories(self):
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
+        self.tmp_svg_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
 
     def generate_labels(self, template, sets=None, skip=0):
