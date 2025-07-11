@@ -153,12 +153,13 @@ class LabelGenerator:
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
 
-    def generate_labels(self, template, sets=None):
+    def generate_labels(self, template, sets=None, skip=0):
         """
         Generate the MTG labels.
 
         Args:
             sets (list): List of set codes to include. If None, all sets will be included.
+            skip (int): Number of label places to skip.  Useful for partially used label sheets.
         """
         if sets:
             config.IGNORED_SETS = ()
@@ -166,11 +167,18 @@ class LabelGenerator:
             config.SET_TYPES = ()
             self.set_codes = [exp.lower() for exp in sets]
 
-        page = 1
-        labels = self.create_set_label_data()
+        if skip < 0:
+            raise ValueError("Skip count must be positive or zero")
+        if skip >= self.labels_per_sheet:
+            raise ValueError(f"Skip count must be less than {self.labels_per_sheet}")
+
+        labels = self.create_set_label_data(skip=skip)
         label_batches = [
-            labels[i : i + self.labels_per_sheet]
-            for i in range(0, len(labels), self.labels_per_sheet)
+            labels[max(offset, 0):offset + self.labels_per_sheet]
+            # Pretend that there are `skip` extra leading elements but don't include them.
+            # This causes the first batch to be smaller by `skip` elements.
+            # Note that this requires that skip < labels_per_sheet.
+            for offset in range(-skip, len(labels), self.labels_per_sheet)
         ]
 
         ENV.filters["mm"] = lambda mm: round(mm * self.SCALE)
@@ -184,7 +192,7 @@ class LabelGenerator:
             log.error(f"Available templates:\n{template_list}")
             return
 
-        for batch in label_batches:
+        for page, batch in enumerate(label_batches, start=1):
             output = template.render(
                 labels=batch,
                 PAGE_WIDTH=self.page_width,
@@ -213,8 +221,6 @@ class LabelGenerator:
             cairosvg.svg2pdf(
                 url=str(outfile_svg), write_to=str(outfile_pdf), unsafe=True
             )
-
-            page += 1
 
         combine_pdfs(self.output_dir)
 
@@ -260,17 +266,25 @@ class LabelGenerator:
             log.error("Error occurred while fetching set data: %s", str(e))
             return []
 
-    def create_set_label_data(self):
+    def create_set_label_data(self, skip=0):
         """
         Create label data for the sets.
+
+        Args:
+            skip (int): Number of label places to skip.  Useful for partially used label sheets.
 
         Returns:
             list: List of label data dictionaries.
         """
+        if skip < 0:
+            raise ValueError("Skip count must be positive or zero")
+        if skip >= self.labels_per_sheet:
+            raise ValueError(f"Skip count must be less than {self.labels_per_sheet}")
+
         labels = []
         set_data = self.get_set_data()
 
-        for label_num, set_info in enumerate(reversed(set_data)):
+        for label_num, set_info in enumerate(reversed(set_data), start=skip):
             label = set_info.copy()
             icon_url = set_info["icon_svg_uri"]
             filename = Path(icon_url).name.split("?")[0]
@@ -390,6 +404,12 @@ def parse_arguments():
         help="Name of template file to use",
     )
     parser.add_argument(
+        "--skip",
+        type=int,
+        default=0,
+        help="Skip the first N label spaces, useful when reusing label sheets",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Enable verbose log output",
@@ -431,6 +451,7 @@ def main():
         generator.generate_labels(
             template=args.template,
             sets=args.sets,
+            skip=args.skip,
         )
     except requests.exceptions.RequestException as e:
         log.error("Error occurred while making a request: %s", str(e))
