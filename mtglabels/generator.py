@@ -1,9 +1,11 @@
 import argparse
+import json
 import logging
 import shutil
 import tempfile
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 import cairosvg
 import jinja2
@@ -154,26 +156,43 @@ class LabelGenerator:
         self.tmp_svg_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
 
-    def generate_labels(self, template, sets=None, skip=0):
+    def generate_labels(
+        self,
+        template: str,
+        set_data: list[dict] = None,
+        set_codes: list[str] = None,
+        skip: int = 0,
+    ):
         """
         Generate the MTG labels.
 
         Args:
-            sets (list): List of set codes to include. If None, all sets will be included.
+            template (str): Template name to use for label generation.
+            set_data (list): List of set dictionaries to use. If None, use Scryfall API.
+            set_codes (list): List of set codes to include. If None, all sets will be included.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
         """
-        if sets:
-            config.IGNORED_SETS = ()
-            config.MINIMUM_SET_SIZE = 0
-            config.SET_TYPES = ()
-            self.set_codes = [exp.lower() for exp in sets]
-
         if skip < 0:
             raise ValueError("Skip count must be positive or zero")
         if skip >= self.labels_per_sheet:
             raise ValueError(f"Skip count must be less than {self.labels_per_sheet}")
 
-        labels = self.create_set_label_data(skip=skip)
+        if not set_data:
+            set_data = self.get_set_data()
+
+        if not set_codes:
+            # If no sets are specified, use the config's default filters.
+            set_data = self.filter_set_data(set_data)
+        else:
+            # Otherwise, only use the chosen sets by set code.
+            known_sets = {exp["code"] for exp in set_data}
+            specified_sets = {code.lower() for code in set_codes}
+            unknown_sets = specified_sets - known_sets
+            if unknown_sets:
+                log.warning("Unknown sets: %s", ", ".join(unknown_sets))
+            set_data = [s for s in set_data if s["code"] in specified_sets]
+
+        labels = self.create_set_label_data(set_data=set_data, skip=skip)
         label_batches = [
             labels[max(offset, 0):offset + self.labels_per_sheet]
             # Pretend that there are `skip` extra leading elements but don't include them.
@@ -225,53 +244,60 @@ class LabelGenerator:
 
         combine_pdfs(self.output_dir)
 
-    def get_set_data(self):
+    def get_set_data(self) -> list[dict]:
         """
         Fetch set data from Scryfall API.
 
         Returns:
             list: List of set data dictionaries.
         """
-
         try:
             log.info("Getting set data and icons from Scryfall")
-
             resp = session.get(config.API_ENDPOINT)
             resp.raise_for_status()
-
-            data = resp.json().get("data", [])
-
-            known_sets = {exp["code"] for exp in data}
-            specified_sets = (
-                {code.lower() for code in self.set_codes} if self.set_codes else set()
-            )
-            unknown_sets = specified_sets - known_sets
-
-            if unknown_sets:
-                log.warning("Unknown sets: %s", ", ".join(unknown_sets))
-
-            set_data = [
-                exp
-                for exp in data
-                if (
-                    exp["code"] not in config.IGNORED_SETS
-                    and exp["card_count"] >= config.MINIMUM_SET_SIZE
-                    and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
-                    and (not self.set_codes or exp["code"].lower() in specified_sets)
-                )
-            ]
-
-            return set_data
-
-        except requests.exceptions.RequestException as e:
-            log.error("Error occurred while fetching set data: %s", str(e))
+            return resp.json()["data"]
+        except requests.exceptions.RequestException:
+            log.exception("Failed to fetch set data from Scryfall API")
+            return []
+        except (json.JSONDecodeError, KeyError):
+            log.exception(f"Malformed response from Scryfall API:\n{resp}\n{resp.text}")
             return []
 
-    def create_set_label_data(self, skip=0):
+    def filter_set_data(self, set_data: list[dict], set_codes: list[str] = []) -> list[dict]:
+        """
+        Filters set data using the current config and requested sets.
+
+        Args:
+            set_data (list): List of set data dictionaries.
+            set_codes (list): List of set codes to keep
+
+        Returns:
+            list: List of filtered set data dictionaries.
+        """
+        known_sets = {exp["code"].lower() for exp in set_data}
+        specified_sets = {code.lower() for code in set_codes}
+        unknown_sets = specified_sets - known_sets
+        if unknown_sets:
+            log.warning("Unknown sets: %s", ", ".join(unknown_sets))
+
+        set_data = [
+            exp
+            for exp in set_data
+            if (
+                exp["code"] not in config.IGNORED_SETS
+                and exp["card_count"] >= config.MINIMUM_SET_SIZE
+                and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
+                and (not set_codes or exp["code"].lower() in specified_sets)
+            )
+        ]
+        return set_data
+
+    def create_set_label_data(self, set_data: list[dict], skip: int = 0):
         """
         Create label data for the sets.
 
         Args:
+            set_data (list): List of set data dictionaries.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
 
         Returns:
@@ -283,8 +309,6 @@ class LabelGenerator:
             raise ValueError(f"Skip count must be less than {self.labels_per_sheet}")
 
         labels = []
-        set_data = self.get_set_data()
-
         for label_num, set_info in enumerate(reversed(set_data), start=skip):
             label = set_info.copy()
             icon_url = set_info["icon_svg_uri"]
@@ -312,7 +336,10 @@ class LabelGenerator:
             label_row = (label_num % self.labels_per_sheet) // self.label_columns
 
             label["name"] = config.RENAME_SETS.get(set_info["name"], set_info["name"])
-            label["released_at"] = datetime.strptime(set_info["released_at"], "%Y-%m-%d").date()
+            try:
+                label["released_at"] = datetime.strptime(label["released_at"], "%Y-%m-%d").date()
+            except (KeyError, ValueError):
+                label["released_at"] = None
             label["icon_filename"] = icon_filename
             label["x"] = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
             label["y"] = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
@@ -451,7 +478,7 @@ def main():
         )
         generator.generate_labels(
             template=args.template,
-            sets=args.sets,
+            set_codes=args.sets,
             skip=args.skip,
         )
     except requests.exceptions.RequestException as e:
