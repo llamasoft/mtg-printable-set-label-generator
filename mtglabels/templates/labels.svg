@@ -1,16 +1,35 @@
 <svg version="1.1"
      baseProfile="full"
-     width="{{ WIDTH / 10 }}mm" height="{{ HEIGHT / 10 }}mm"
-     viewBox="0 0 {{ WIDTH }} {{ HEIGHT }}"
+     width="{{ PAGE_WIDTH | round(2) }}mm" height="{{ PAGE_HEIGHT | round(2) }}mm"
+     viewBox="0 0 {{ PAGE_WIDTH|mm }} {{ PAGE_HEIGHT|mm }}"
      xmlns="http://www.w3.org/2000/svg">
 
     {% for label in labels %}
-		<g>
-            <!-- {{ label.name }} -->
-            <text x="{{ label.x + 45 }}" y="{{ label.y + 80 }}" font-size="35" dominant-baseline="hanging" style="font-weight: bold; font-family: 'EB Garamond', 'Times New Roman', serif">{{ label.name | escape }}</text>
-            <text x="{{ label.x + 45 }}" y="{{ label.y + 120 }}" font-size="25" dominant-baseline="hanging" style="font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif">{{ label.code | upper | escape }} - {{ label.date.strftime('%B %Y') }}</text>
-            <image x="{{ label.x + 570 }}" y="{{ label.y + 85 }}" width="70" height="70" href="{{ label.icon_filename }}" />
-        </g>
+    <g>
+        <!-- {{ label.name | escape }} -->
+        <text
+            x="{{ (label.x + 4.5)|mm }}"
+            y="{{ (label.y + 8.0)|mm }}"
+            font-size="{{ 3.5|mm }}"
+            dominant-baseline="hanging"
+            style="font-weight: bold; font-family: 'EB Garamond', 'Times New Roman', serif"
+        >{{ label.name | escape }}</text>
+        <text
+            x="{{ (label.x +  4.5)|mm }}"
+            y="{{ (label.y + 12.0)|mm }}"
+            font-size="{{ 2.5|mm }}"
+            dominant-baseline="hanging"
+            style="font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        >{{ label.code | upper | escape }} - {{ label.released_at.strftime('%B %Y') }}</text>
+        {% if label.icon_filename %}
+        <image
+            x="{{ (label.x + 57.0)|mm }}"
+            y="{{ (label.y +  8.5)|mm }}"
+            width="{{ 7.0|mm }}"
+            height="{{ 7.0|mm }}"
+            href="{{ label.icon_filename }}"
+        />
+        {% endif %}
+    </g>
     {% endfor %}
-
 </svg>

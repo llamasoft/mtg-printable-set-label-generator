@@ -52,44 +52,109 @@ class LabelGenerator:
     # Default output directory for generated labels
     DEFAULT_OUTPUT_DIR = Path.cwd() / "output"
 
-    # Margins and starting positions on the label page
-    MARGIN = 40  # in 1/10 mm
-    START_X = MARGIN
-    START_Y = MARGIN + 40
-
     # Label templates
     LABEL_TEMPLATE_FILENAME = "labels.svg"
-    DEFAULT_LABELS_PER_SHEET = 30
 
-    def __init__(self, labels_per_sheet=None, output_dir=None):
+    # Millimeter decimal precision
+    PRECISION = 1
+    SCALE = 10 ** PRECISION
+
+    def __init__(
+        self,
+        page_width: float,
+        page_height: float,
+        margin_horizontal: float,
+        margin_vertical: float,
+        label_width: float,
+        label_height: float,
+        label_columns: int,
+        label_rows: int,
+        output_dir=None,
+    ):
         """
         Initialize the LabelGenerator.
 
         Args:
-            labels_per_sheet (int): The number of labels per sheet.
+            page_width (float): Total page width
+            page_height (float): Total page height
+            margin_horizontal (float): Left/right page margins
+            margin_vertical (float): Top/bottom page margins
+            label_width (float): Label horizontal size
+            label_height (float): Lable vertical size
+            label_columns (int): Number of label columns
+            label_rows (int): Number of label rows
             output_dir (str): The output directory for the generated labels. Defaults to DEFAULT_OUTPUT_DIR.
         """
         self.set_codes = []
-        self.labels_per_sheet = labels_per_sheet or self.DEFAULT_LABELS_PER_SHEET
+
+        self.page_width = page_width
+        self.page_height = page_height
+        self.margin_horizontal = margin_horizontal
+        self.margin_vertical = margin_vertical
+        self.label_width = label_width
+        self.label_height = label_height
+        self.label_columns = label_columns
+        self.label_rows = label_rows
+        self.check_dimensions()
+        log.debug(f"Calculated horizontal gap: {self.label_gap_horizontal:.2f}mm")
+        log.debug(f"Calculated vertical gap: {self.label_gap_vertical:.2f}mm")
+
         self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
 
         self.tmp_svg_dir = None
         self.setup_directories()
 
-        self.delta_y = None
-        self.delta_x = None
-        self.calculate_label_dimensions()
+    @property
+    def labels_per_sheet(self):
+        return self.label_rows * self.label_columns
+
+    @property
+    def label_gap_horizontal(self):
+        if self.label_columns == 0:
+            return 0
+        unused_space = (self.page_width - 2*self.margin_horizontal - self.label_columns*self.label_width)
+        return unused_space / (self.label_columns - 1)
+
+    @property
+    def label_gap_vertical(self):
+        if self.label_rows == 0:
+            return 0
+        unused_space = (self.page_height - 2*self.margin_vertical - self.label_rows*self.label_height)
+        return unused_space / (self.label_rows - 1)
+
+    def check_dimensions(self):
+        positive_values = [
+            self.page_width,
+            self.page_height,
+            self.label_height,
+            self.label_width,
+            self.label_rows,
+            self.label_columns
+        ]
+        if not all(v > 0 for v in positive_values):
+            raise ValueError("All page and label dimensions and counts must be positive")
+
+        if not all(v >= 0 for v in [self.margin_horizontal, self.margin_vertical]):
+            raise ValueError("Page margins must be positive or zero")
+
+        required_width = self.label_columns*self.label_width + 2*self.margin_horizontal
+        if required_width > self.page_width:
+            raise ValueError(
+                f"Page not wide enough for {self.label_columns} columns of {self.label_width}mm labels"
+                f" with {self.margin_horizontal}mm left/right margins ({required_width:.1f}mm > {self.page_width:.1f}mm)"
+            )
+
+        required_height = self.label_rows*self.label_height + 2*self.margin_vertical
+        if required_height > self.page_height:
+            raise ValueError(
+                f"Page not tall enough for {self.label_rows} rows of {self.label_height}mm labels"
+                f" with {self.margin_vertical}mm top/bottom margins ({required_height:.1f}mm > {self.page_height:.1f}mm)"
+            )
 
     def setup_directories(self):
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.tmp_svg_dir = Path("/tmp/mtglabels/svg")
         self.tmp_svg_dir.mkdir(parents=True, exist_ok=True)
-
-    def calculate_label_dimensions(self):
-        self.delta_x = (config.LETTER_WIDTH - (2 * self.MARGIN)) / 3 + 10
-        self.delta_y = (config.LETTER_HEIGHT - (2 * self.MARGIN)) / (
-            self.labels_per_sheet / 3
-        ) - 18
 
     def generate_labels(self, sets=None):
         """
@@ -113,10 +178,21 @@ class LabelGenerator:
 
         template_name = self.LABEL_TEMPLATE_FILENAME  # Use the defined constant
 
+        ENV.filters["mm"] = lambda mm: round(mm * self.SCALE)
         template = ENV.get_template(template_name)
         for batch in label_batches:
             output = template.render(
-                labels=batch, WIDTH=config.LETTER_WIDTH, HEIGHT=config.LETTER_HEIGHT
+                labels=batch,
+                PAGE_WIDTH=self.page_width,
+                PAGE_HEIGHT=self.page_height,
+                MARGIN_HORIZONTAL=self.margin_horizontal,
+                MARGIN_VERTICAL=self.margin_vertical,
+                LABEL_WIDTH=self.label_width,
+                LABEL_HEIGHT=self.label_height,
+                LABEL_COLUMNS=self.label_columns,
+                LABEL_ROWS=self.label_rows,
+                LABEL_GAP_HORIZONTAL=self.label_gap_horizontal,
+                LABEL_GAP_VERTICAL=self.label_gap_vertical,
             )
             outfile_svg = (
                 self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
@@ -188,58 +264,45 @@ class LabelGenerator:
             list: List of label data dictionaries.
         """
         labels = []
-        x = self.START_X
-        y = self.START_Y
-
         set_data = self.get_set_data()
 
-        for exp in reversed(set_data):
+        for label_num, exp in enumerate(reversed(set_data)):
             name = config.RENAME_SETS.get(exp["name"], exp["name"])
             icon_url = exp["icon_svg_uri"]
             filename = Path(icon_url).name.split("?")[0]
-            file_path = self.tmp_svg_dir / filename
+            temp_path = self.tmp_svg_dir / filename
+            file_path = self.output_dir / filename
 
-            if file_path.exists():
+            icon_filename = filename
+            if temp_path.exists() or file_path.exists():
                 log.debug(f"Skipping download. File already exists: {icon_url}")
-                icon_filename = filename
             else:
                 try:
                     response = session.get(icon_url)
                     response.raise_for_status()
-                    with file_path.open("wb") as file:
+                    with temp_path.open("wb") as file:
                         file.write(response.content)
-                    icon_filename = filename
                 except requests.exceptions.RequestException as e:
-                    log.error(f"Failed to download file: {icon_url}")
-                    log.error("Error occurred while downloading file: %s", str(e))
+                    log.exception(f"Failed to download file: {icon_url}")
                     icon_filename = None
 
-            if icon_filename:
-                shutil.copy(file_path, self.output_dir)
-                labels.append(
-                    {
-                        "name": name,
-                        "code": exp["code"],
-                        "date": datetime.strptime(
-                            exp["released_at"], "%Y-%m-%d"
-                        ).date(),
-                        "icon_filename": icon_filename,
-                        "x": x,
-                        "y": y,
-                    }
-                )
+            if icon_filename is not None and not file_path.exists():
+                shutil.copy(temp_path, file_path)
 
-            y += self.delta_y
-
-            # Start a new column if needed
-            if len(labels) % (self.labels_per_sheet / 3) == 0:
-                x += self.delta_x
-                y = self.START_Y
-
-            # Start a new page if needed
-            if len(labels) % self.labels_per_sheet == 0:
-                x = self.START_X
-                y = self.START_Y
+            label_column = (label_num % self.labels_per_sheet) % self.label_columns
+            label_row = (label_num % self.labels_per_sheet) // self.label_columns
+            label_x = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
+            label_y = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
+            labels.append({
+                "name": name,
+                "code": exp["code"],
+                "released_at": datetime.strptime(
+                    exp["released_at"], "%Y-%m-%d"
+                ).date(),
+                "icon_filename": icon_filename,
+                "x": label_x,
+                "y": label_y,
+            })
 
         return labels
 
@@ -274,18 +337,60 @@ def parse_arguments():
         help="Output labels to this directory",
     )
     parser.add_argument(
-        "--labels-per-sheet",
+        "--page-width", "--page-x",
+        type=float,
+        default=(8.5 * 25.4),
+        help="Page width in millimeters",
+    )
+    parser.add_argument(
+        "--page-height", "--page-y",
+        type=float,
+        default=(11 * 25.4),
+        help="Page height in millimeters",
+    )
+    parser.add_argument(
+        "--margin-horizontal", "--margin-x",
+        type=float,
+        default=4.0,
+        help="Top/bottom margin in millimeters",
+    )
+    parser.add_argument(
+        "--margin-vertical", "--margin-y",
+        type=float,
+        default=13.5,
+        help="Top/bottom margin in millimeters",
+    )
+    parser.add_argument(
+        "--label-width", "--label-x",
+        type=float,
+        default=(2+5/8)*25.4,
+        help="Label width in millimeters",
+    )
+    parser.add_argument(
+        "--label-height", "--label-y",
+        type=float,
+        default=25.2,
+        help="Label height in millimeters",
+    )
+    parser.add_argument(
+        "--label-columns", "--columns",
         type=int,
-        default=LabelGenerator.DEFAULT_LABELS_PER_SHEET,
-        choices=[24, 30],
-        help="Number of labels per sheet (default: 30)",
+        default=3,
+        help="Number of columns of labels on a single sheet",
+    )
+    parser.add_argument(
+        "--label-rows", "--rows",
+        type=int,
+        default=10,
+        help="Number of rows of labels on a single sheet",
     )
     parser.add_argument(
         "sets",
         nargs="*",
         help=(
             "Only output sets with the specified set code (e.g., MH1, NEO). "
-            "This can be used multiple times."
+            "This can be used multiple times. "
+            "If empty, defaults to all sets."
         ),
         metavar="SET",
     )
@@ -300,7 +405,17 @@ def main():
 
     try:
         args = parse_arguments()
-        generator = LabelGenerator(args.labels_per_sheet, args.output_dir)
+        generator = LabelGenerator(
+            args.page_width,
+            args.page_height,
+            args.margin_horizontal,
+            args.margin_vertical,
+            args.label_width,
+            args.label_height,
+            args.label_columns,
+            args.label_rows,
+            output_dir=args.output_dir
+        )
         generator.generate_labels(args.sets)
     except requests.exceptions.RequestException as e:
         log.error("Error occurred while making a request: %s", str(e))

@@ -114,7 +114,3 @@ RENAME_SETS = {
     "World Championship Decks 2004": "World Championship 2004",
     "Zendikar Rising Commander": "CMDR Zendikar Rising",
 }
-
-
-LETTER_WIDTH = 2160  # Letter paper width in mm
-LETTER_HEIGHT = 2790  # Letter paper height in mm
