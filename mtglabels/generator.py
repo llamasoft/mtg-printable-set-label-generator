@@ -23,12 +23,6 @@ log = logging.getLogger(__name__)
 # Get the base directory of the script
 BASE_DIR = Path(__file__).resolve().parent
 
-# Set up the Jinja2 environment for template loading
-ENV = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(BASE_DIR / "templates"),
-    autoescape=jinja2.select_autoescape(["html", "xml"]),
-)
-
 # Retry Strategy for requests
 retry_strategy = Retry(
     total=3,  # Total number of retries to allow
@@ -69,7 +63,6 @@ class LabelGenerator:
         label_height: float,
         label_columns: int,
         label_rows: int,
-        output_dir=None,
     ):
         """
         Initialize the LabelGenerator.
@@ -83,10 +76,7 @@ class LabelGenerator:
             label_height (float): Lable vertical size
             label_columns (int): Number of label columns
             label_rows (int): Number of label rows
-            output_dir (str): The output directory for the generated labels. Defaults to DEFAULT_OUTPUT_DIR.
         """
-        self.set_codes = []
-
         self.page_width = page_width
         self.page_height = page_height
         self.margin_horizontal = margin_horizontal
@@ -95,14 +85,13 @@ class LabelGenerator:
         self.label_height = label_height
         self.label_columns = label_columns
         self.label_rows = label_rows
-        self.check_dimensions()
+        self._check_dimensions()
         log.debug(f"Calculated horizontal gap: {self.label_gap_horizontal:.2f}mm")
         log.debug(f"Calculated vertical gap: {self.label_gap_vertical:.2f}mm")
 
-        self.output_dir = Path(output_dir or self.DEFAULT_OUTPUT_DIR)
-
-        self.temp_dir = None
-        self.setup_directories()
+        self.cache_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        log.debug(f"Using cache directory: {self.cache_dir}")
 
     @property
     def labels_per_sheet(self):
@@ -122,7 +111,7 @@ class LabelGenerator:
         unused_space = (self.page_height - 2*self.margin_vertical - self.label_rows*self.label_height)
         return unused_space / (self.label_rows - 1)
 
-    def check_dimensions(self):
+    def _check_dimensions(self):
         positive_values = [
             self.page_width,
             self.page_height,
@@ -151,15 +140,19 @@ class LabelGenerator:
                 f" with {self.margin_vertical}mm top/bottom margins ({required_height:.1f}mm > {self.page_height:.1f}mm)"
             )
 
-    def setup_directories(self):
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.temp_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
-        self.temp_dir.mkdir(parents=True, exist_ok=True)
-        log.debug(f"Using cache directory: {self.temp_dir}")
+    def _get_jinja_env(self) -> jinja2.Environment:
+        """Returns a Jinja2 environment for template loading"""
+        env = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(BASE_DIR / "templates"),
+            autoescape=jinja2.select_autoescape(["html", "xml"]),
+        )
+        env.filters["mm"] = lambda mm: round(mm * self.SCALE)
+        return env
 
     def generate_labels(
         self,
         template: str,
+        output_dir: Path,
         set_data: list[dict] = None,
         set_codes: list[str] = None,
         skip: int = 0,
@@ -173,6 +166,20 @@ class LabelGenerator:
             set_codes (list): List of set codes to include. If None, all sets will be included.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
         """
+        jenv = self._get_jinja_env()
+        try:
+            template = jenv.get_template(template)
+        except jinja2.TemplateNotFound:
+            log.error(f"Template not found: {template}")
+            template_list = "\n".join(
+                ("  " + t) for t in jenv.list_templates()
+            )
+            log.error(f"Available templates:\n{template_list}")
+            return
+
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+
         if skip < 0:
             raise ValueError("Skip count must be positive or zero")
         if skip >= self.labels_per_sheet:
@@ -183,7 +190,7 @@ class LabelGenerator:
             set_data.sort(key=lambda s: s.get("released_at"))
 
         if not set_codes:
-            # If no sets are specified, use the config's default filters.
+            # If no set codes are specified, use the config's default filters.
             set_data = self.filter_set_data(set_data)
         else:
             # Otherwise, only use the chosen sets by set code.
@@ -194,7 +201,7 @@ class LabelGenerator:
                 log.warning("Unknown sets: %s", ", ".join(unknown_sets))
             set_data = [s for s in set_data if s["code"] in specified_sets]
 
-        labels = self.create_set_label_data(set_data=set_data, skip=skip)
+        labels = self.create_set_label_data(set_data, output_dir, skip=skip)
         label_batches = [
             labels[max(offset, 0):offset + self.labels_per_sheet]
             # Pretend that there are `skip` extra leading elements but don't include them.
@@ -202,17 +209,6 @@ class LabelGenerator:
             # Note that this requires that skip < labels_per_sheet.
             for offset in range(-skip, len(labels), self.labels_per_sheet)
         ]
-
-        ENV.filters["mm"] = lambda mm: round(mm * self.SCALE)
-        try:
-            template = ENV.get_template(template)
-        except jinja2.TemplateNotFound:
-            log.error(f"Template not found: {template}")
-            template_list = "\n".join(
-                ("  " + t) for t in ENV.list_templates()
-            )
-            log.error(f"Available templates:\n{template_list}")
-            return
 
         label_pages = []
         for page, batch in enumerate(label_batches, start=1):
@@ -229,12 +225,8 @@ class LabelGenerator:
                 LABEL_GAP_HORIZONTAL=self.label_gap_horizontal,
                 LABEL_GAP_VERTICAL=self.label_gap_vertical,
             )
-            outfile_svg = (
-                self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
-            )
-            outfile_pdf = (
-                self.output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
-            )
+            outfile_svg = output_dir / f"labels-{self.labels_per_sheet}-{page:02}.svg"
+            outfile_pdf = output_dir / f"labels-{self.labels_per_sheet}-{page:02}.pdf"
 
             log.info(f"Writing {outfile_svg}...")
             with outfile_svg.open("w") as fd:
@@ -246,7 +238,7 @@ class LabelGenerator:
             )
             label_pages.append(outfile_pdf)
 
-        self.combine_pdfs(label_pages, self.output_dir / "combined_labels.pdf")
+        self.combine_pdfs(label_pages, output_dir / "combined_labels.pdf")
 
     def get_set_data(self) -> list[dict]:
         """
@@ -296,7 +288,7 @@ class LabelGenerator:
         ]
         return set_data
 
-    def create_set_label_data(self, set_data: list[dict], skip: int = 0):
+    def create_set_label_data(self, set_data: list[dict], output_dir: Path, skip: int = 0):
         """
         Create label data for the sets.
 
@@ -323,27 +315,28 @@ class LabelGenerator:
                 label["released_at"] = datetime.strptime(label["released_at"], "%Y-%m-%d").date()
             except (KeyError, ValueError):
                 label["released_at"] = None
-            label["icon_filename"] = self._download_image(set_info.get("icon_svg_uri"))
+            label["icon_filename"] = self._download_image(set_info.get("icon_svg_uri"), output_dir)
             label["x"] = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
             label["y"] = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
             labels.append(label)
 
         return labels
 
-    def _download_image(self, image_url: str) -> Optional[str]:
+    def _download_image(self, image_url: str, output_dir: Path) -> Optional[str]:
         """Downloads an image and returns the local output file name."""
         if not image_url:
             return None
 
         file_name = Path(image_url).name.split("?")[0]
-        cache_path = self.temp_dir / file_name
-        final_path = self.output_dir / file_name
+        cache_path = self.cache_dir / file_name
+        final_path = output_dir / file_name
 
         if final_path.exists():
             log.debug(f"Skipping download. File already exists: {file_name}")
             return file_name
 
         if not cache_path.exists():
+            log.debug(f"Downloading {file_name}")
             try:
                 response = session.get(image_url)
                 response.raise_for_status()
@@ -377,7 +370,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="Generate MTG labels")
     parser.add_argument(
         "--output-dir",
-        default=LabelGenerator.DEFAULT_OUTPUT_DIR,
+        default="output",
         help="Output labels to this directory",
     )
     parser.add_argument(
@@ -477,10 +470,10 @@ def main():
             args.label_height,
             args.label_columns,
             args.label_rows,
-            output_dir=args.output_dir
         )
         generator.generate_labels(
-            template=args.template,
+            args.template,
+            args.output_dir,
             set_codes=args.sets,
             skip=args.skip,
         )
