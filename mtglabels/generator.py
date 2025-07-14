@@ -5,7 +5,7 @@ import shutil
 import tempfile
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 import cairosvg
 import jinja2
@@ -155,6 +155,7 @@ class LabelGenerator:
         output_dir: Path,
         set_data: list[dict] = None,
         set_codes: list[str] = None,
+        set_filter: Callable[[dict], bool] = None,
         skip: int = 0,
         columns_first: bool = False,
     ):
@@ -166,6 +167,8 @@ class LabelGenerator:
             output_dir (Path): Output directory SVGs and PDFs.
             set_data (list): List of set dictionaries to use. If None, use Scryfall API.
             set_codes (list): List of set codes to include. If None, all sets will be included.
+            set_filter (callable): A lambda expression that accepts a Scryfall set dict
+               and evaluates to True if the set should be included.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
             columns_first (bool): Fill columns before rows.
         """
@@ -193,8 +196,9 @@ class LabelGenerator:
             set_data.sort(key=lambda s: s.get("released_at"))
 
         if not set_codes:
-            # If no set codes are specified, use the config's default filters.
-            set_data = self.filter_set_data(set_data)
+            # If no set codes are specified, use the config's default filters
+            # in addition to any user-supplied filters.
+            set_data = self.filter_set_data(set_data, set_filter=set_filter)
         else:
             # Otherwise, only use the chosen sets by set code.
             known_sets = {exp["code"] for exp in set_data}
@@ -262,14 +266,20 @@ class LabelGenerator:
             log.exception(f"Malformed response from Scryfall API:\n{resp}\n{resp.text}")
             return []
 
-    def filter_set_data(self, set_data: list[dict], set_codes: list[str] = []) -> list[dict]:
+    def filter_set_data(
+        self,
+        set_data: list[dict],
+        set_codes: list[str] = [],
+        set_filter: Callable[[dict], bool] = None,
+    ) -> list[dict]:
         """
         Filters set data using the current config and requested sets.
 
         Args:
             set_data (list): List of set data dictionaries.
             set_codes (list): List of set codes to keep
-
+            set_filter (callable): A lambda expression that accepts a Scryfall set dict
+               and evaluates to True if the set should be included.
         Returns:
             list: List of filtered set data dictionaries.
         """
@@ -287,8 +297,9 @@ class LabelGenerator:
                 and exp["card_count"] >= config.MINIMUM_SET_SIZE
                 and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
                 and (not set_codes or exp["code"].lower() in specified_sets)
-            )
+            ) and (not callable(set_filter) or set_filter(exp))
         ]
+        log.info("Selected %d sets: %s", len(set_data), " ".join(exp["code"] for exp in set_data))
         return set_data
 
     def create_set_label_data(
@@ -459,6 +470,15 @@ def parse_arguments():
         help="Enable verbose log output",
     )
     parser.add_argument(
+        "--set-filter",
+        type=str,
+        help=(
+            "A Python lambda expression that accepts a Scryfall set dict `s` "
+            "and evaluates to True if the set should be included. "
+            "e.g. s['released_at'] >= '2020-01-01' and s['foil_only']"
+        )
+    )
+    parser.add_argument(
         "sets",
         nargs="*",
         help=(
@@ -495,6 +515,7 @@ def main():
             args.template,
             args.output_dir,
             set_codes=args.sets,
+            set_filter=(lambda s: eval(args.set_filter)) if args.set_filter else None,
             skip=args.skip,
             columns_first=args.columns_first,
         )
