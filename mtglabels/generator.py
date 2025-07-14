@@ -156,15 +156,18 @@ class LabelGenerator:
         set_data: list[dict] = None,
         set_codes: list[str] = None,
         skip: int = 0,
+        columns_first: bool = False,
     ):
         """
         Generate the MTG labels.
 
         Args:
             template (str): Template name to use for label generation.
+            output_dir (Path): Output directory SVGs and PDFs.
             set_data (list): List of set dictionaries to use. If None, use Scryfall API.
             set_codes (list): List of set codes to include. If None, all sets will be included.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
+            columns_first (bool): Fill columns before rows.
         """
         jenv = self._get_jinja_env()
         try:
@@ -201,7 +204,7 @@ class LabelGenerator:
                 log.warning("Unknown sets: %s", ", ".join(unknown_sets))
             set_data = [s for s in set_data if s["code"] in specified_sets]
 
-        labels = self.create_set_label_data(set_data, output_dir, skip=skip)
+        labels = self.create_set_label_data(set_data, output_dir, skip=skip, columns_first=columns_first)
         label_batches = [
             labels[max(offset, 0):offset + self.labels_per_sheet]
             # Pretend that there are `skip` extra leading elements but don't include them.
@@ -288,13 +291,21 @@ class LabelGenerator:
         ]
         return set_data
 
-    def create_set_label_data(self, set_data: list[dict], output_dir: Path, skip: int = 0):
+    def create_set_label_data(
+        self,
+        set_data: list[dict],
+        output_dir: Path,
+        skip: int = 0,
+        columns_first: bool = False,
+    ):
         """
         Create label data for the sets.
 
         Args:
             set_data (list): List of set data dictionaries.
+            output_dir (Path): Output directory for set icons.
             skip (int): Number of label places to skip.  Useful for partially used label sheets.
+            columns_first (bool): Fill columns before rows.
 
         Returns:
             list: List of label data dictionaries.
@@ -307,8 +318,12 @@ class LabelGenerator:
         labels = []
         for label_num, set_info in enumerate(set_data, start=skip):
             label = set_info.copy()
-            label_column = (label_num % self.labels_per_sheet) % self.label_columns
-            label_row = (label_num % self.labels_per_sheet) // self.label_columns
+            if columns_first:
+                label_column = (label_num % self.labels_per_sheet) // self.label_rows
+                label_row = (label_num % self.labels_per_sheet) % self.label_rows
+            else:
+                label_column = (label_num % self.labels_per_sheet) % self.label_columns
+                label_row = (label_num % self.labels_per_sheet) // self.label_columns
 
             label["name"] = config.RENAME_SETS.get(set_info["name"], set_info["name"])
             try:
@@ -434,6 +449,11 @@ def parse_arguments():
         help="Skip the first N label spaces, useful when reusing label sheets",
     )
     parser.add_argument(
+        "--columns-first",
+        action="store_true",
+        help="Fill columns before rows (top to bottom, left to right)",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Enable verbose log output",
@@ -476,6 +496,7 @@ def main():
             args.output_dir,
             set_codes=args.sets,
             skip=args.skip,
+            columns_first=args.columns_first,
         )
     except requests.exceptions.RequestException as e:
         log.error("Error occurred while making a request: %s", str(e))
