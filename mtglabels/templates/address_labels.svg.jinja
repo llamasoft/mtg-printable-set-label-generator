@@ -4,29 +4,35 @@
      viewBox="0 0 {{ PAGE_WIDTH|mm }} {{ PAGE_HEIGHT|mm }}"
      xmlns="http://www.w3.org/2000/svg">
 
+    {%- set padding = 4.0 %}
+    {%- set icon_size = 7.0 %}
+    {%- set title_size = 3.5 %}
+    {%- set subtitle_size = title_size * 0.75 %}
+    {%- set center_y = LABEL_HEIGHT/2 %}
     {% for label in labels %}
     <g>
         <!-- {{ label.name | escape }} -->
         <text
-            x="{{ (label.x + 4.5)|mm }}"
-            y="{{ (label.y + 8.0)|mm }}"
-            font-size="{{ 3.5|mm }}"
-            dominant-baseline="hanging"
+            x="{{ (label.x + padding)|mm }}"
+            y="{{ (label.y + center_y)|mm }}"
+            font-size="{{ title_size|mm }}"
+            dominant-baseline="text-bottom"
             style="font-weight: bold; font-family: 'EB Garamond', 'Times New Roman', serif"
         >{{ label.name | escape }}</text>
         <text
-            x="{{ (label.x +  4.5)|mm }}"
-            y="{{ (label.y + 12.0)|mm }}"
-            font-size="{{ 2.5|mm }}"
+            x="{{ (label.x + padding)|mm }}"
+            y="{{ (label.y + center_y)|mm }}"
+            dy="0.2em"
+            font-size="{{ subtitle_size|mm }}"
             dominant-baseline="hanging"
             style="font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
         >{{ label.code | upper | escape }} - {{ label.released_at.strftime('%B %Y') }}</text>
         {% if label.icon_filename %}
         <image
-            x="{{ (label.x + 57.0)|mm }}"
-            y="{{ (label.y +  8.5)|mm }}"
-            width="{{ 7.0|mm }}"
-            height="{{ 7.0|mm }}"
+            x="{{ (label.x + LABEL_WIDTH - padding - icon_size)|mm }}"
+            y="{{ (label.y + center_y - icon_size/2)|mm }}"
+            width="{{ icon_size|mm }}"
+            height="{{ icon_size|mm }}"
             href="{{ label.icon_filename }}"
         />
         {% endif %}
