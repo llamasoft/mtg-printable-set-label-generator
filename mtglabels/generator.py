@@ -1,8 +1,5 @@
 import argparse
-import json
 import logging
-import shutil
-import tempfile
 from datetime import datetime
 from pathlib import Path
 from typing import Callable, Optional
@@ -15,6 +12,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 import mtglabels.config as config
+import mtglabels.cache as cache
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
@@ -89,9 +87,7 @@ class LabelGenerator:
         log.debug(f"Calculated horizontal gap: {self.label_gap_horizontal:.2f}mm")
         log.debug(f"Calculated vertical gap: {self.label_gap_vertical:.2f}mm")
 
-        self.cache_dir = Path(tempfile.gettempdir()) / "mtglabels" / "svg"
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
-        log.debug(f"Using cache directory: {self.cache_dir}")
+        log.debug(f"Using cache directory: {cache.get_cache_dir()}")
 
     @property
     def labels_per_sheet(self):
@@ -247,24 +243,19 @@ class LabelGenerator:
 
         self.combine_pdfs(label_pages, output_dir / "combined_labels.pdf")
 
-    def get_set_data(self) -> list[dict]:
+    @staticmethod
+    @cache.filecache(ttl=24*60*60)
+    def get_set_data() -> list[dict]:
         """
         Fetch set data from Scryfall API.
 
         Returns:
             list: List of set data dictionaries.
         """
-        try:
-            log.info("Getting set data and icons from Scryfall")
-            resp = session.get(config.API_ENDPOINT)
-            resp.raise_for_status()
-            return resp.json()["data"]
-        except requests.exceptions.RequestException:
-            log.exception("Failed to fetch set data from Scryfall API")
-            return []
-        except (json.JSONDecodeError, KeyError):
-            log.exception(f"Malformed response from Scryfall API:\n{resp}\n{resp.text}")
-            return []
+        log.info("Getting set data and icons from Scryfall")
+        resp = session.get(config.API_ENDPOINT)
+        resp.raise_for_status()
+        return resp.json()["data"]
 
     def filter_set_data(
         self,
@@ -341,39 +332,34 @@ class LabelGenerator:
                 label["released_at"] = datetime.strptime(label["released_at"], "%Y-%m-%d").date()
             except (KeyError, ValueError):
                 label["released_at"] = None
-            label["icon_filename"] = self._download_image(set_info.get("icon_svg_uri"), output_dir)
+            label["icon_filename"] = self.save_set_icon(set_info.get("icon_svg_uri"), output_dir)
             label["x"] = self.margin_horizontal + (self.label_width + self.label_gap_horizontal) * label_column
             label["y"] = self.margin_vertical + (self.label_height + self.label_gap_vertical) * label_row
             labels.append(label)
 
         return labels
 
-    def _download_image(self, image_url: str, output_dir: Path) -> Optional[str]:
-        """Downloads an image and returns the local output file name."""
-        if not image_url:
+    @staticmethod
+    @cache.filecache(ttl=-1)
+    def get_set_icon(icon_url: str) -> bytes:
+        """Fetches and caches a set's icon SVG."""
+        resp = session.get(icon_url)
+        resp.raise_for_status()
+        return resp.content
+
+    def save_set_icon(self, icon_url: str, output_dir: Path) -> Optional[str]:
+        """Downloads a set's icon and returns the local output file name."""
+        if not icon_url:
             return None
 
-        file_name = Path(image_url).name.split("?")[0]
-        cache_path = self.cache_dir / file_name
-        final_path = output_dir / file_name
+        clean_url = icon_url.split("?")[0]
+        file_name = Path(clean_url).name
+        output_path = output_dir / "icons" / file_name
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, "wb") as f:
+            f.write(self.get_set_icon(clean_url))
 
-        if final_path.exists():
-            log.debug(f"Skipping download. File already exists: {file_name}")
-            return file_name
-
-        if not cache_path.exists():
-            log.debug(f"Downloading {file_name}")
-            try:
-                response = session.get(image_url)
-                response.raise_for_status()
-                with cache_path.open("wb") as file:
-                    file.write(response.content)
-            except requests.exceptions.RequestException as e:
-                log.exception(f"Failed to download file: {image_url}")
-                return None
-
-        shutil.copy(cache_path, final_path)
-        return file_name
+        return str(output_path.relative_to(output_dir))
 
     @staticmethod
     def combine_pdfs(input_paths: list[Path], output_path: Path):
