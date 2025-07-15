@@ -436,7 +436,7 @@ def parse_arguments():
     parser.add_argument(
         "--template",
         type=str,
-        default="address_labels.svg.jinja",
+        default="name_code_date_icon.svg.jinja",
         help="Name of template file to use",
     )
     parser.add_argument(
