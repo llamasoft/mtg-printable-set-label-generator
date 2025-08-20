@@ -50,12 +50,33 @@ For example, sets can be excluded one-by-one or in groups by type or sets can be
 
 The labels are designed for US Letter paper but this can be customized:
 
-    python mtglabels/generator.py --paper-size=a4   # Use A4 paper size
-    python mtglabels/generator.py --help            # Show all options
+    # Show all options
+    python mtglabels/generator.py --help
+    
+    # Use A4 paper size
+    python mtglabels/generator.py --page-width=210 --page-height=297
+    
+    # Use smaller 1" x 0.375" labels (sizes in mm)
+    python mtglabels/generator.py \
+        --columns 7 --rows 22 \
+        --label-width 25 --label-height 9.5 \
+        --margin-width 11.5 --margin-height 4
+
+The label layouts can be customized:
+
+    # List available layouts
+    python mtglabels/generator.py --template
+    
+    # Use different label layout
+    python mtglabels/generator.py --template icon_only.svg.jinja
 
 You can generate labels for specific sets as well:
 
+    # Specific list of set codes
     python mtglabels/generator.py lea mh1 mh2 neo
+    
+    # Python expression to filter sets
+    python mtglabels/generator.py --set-filter 's["set_type"] in ("core", "expansion")'
 
 
 You can change how the labels are actually displayed and rendered by customizing `templates/labels.svg`.
