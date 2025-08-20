@@ -1,0 +1,23 @@
+<svg version="1.1"
+     baseProfile="full"
+     width="{{ PAGE_WIDTH | round(2) }}mm" height="{{ PAGE_HEIGHT | round(2) }}mm"
+     viewBox="0 0 {{ PAGE_WIDTH|mm }} {{ PAGE_HEIGHT|mm }}"
+     xmlns="http://www.w3.org/2000/svg">
+
+    {% for label in labels %}
+    <g>
+        <!-- {{ label.name | escape }} -->
+        {%- set icon_height_pct = 0.80 if label.icon_filename else 0 %}
+        {%- set icon_size = LABEL_HEIGHT * icon_height_pct %}
+        {%- set center_x = LABEL_WIDTH / 2 %}
+        {%- set center_y = LABEL_HEIGHT / 2 %}
+        <image
+            x="{{ (label.x + center_x - icon_size/2)|mm }}"
+            y="{{ (label.y + center_y - icon_size/2)|mm }}"
+            width="{{ icon_size|mm }}"
+            height="{{ icon_size|mm }}"
+            href="{{ label.icon_filename }}"
+        />
+    </g>
+    {% endfor %}
+</svg>

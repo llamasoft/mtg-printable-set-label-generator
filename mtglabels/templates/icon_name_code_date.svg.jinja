@@ -1,0 +1,41 @@
+<svg version="1.1"
+     baseProfile="full"
+     width="{{ PAGE_WIDTH | round(2) }}mm" height="{{ PAGE_HEIGHT | round(2) }}mm"
+     viewBox="0 0 {{ PAGE_WIDTH|mm }} {{ PAGE_HEIGHT|mm }}"
+     xmlns="http://www.w3.org/2000/svg">
+
+    {%- set padding = 4.0 %}
+    {%- set icon_size = 7.0 %}
+    {%- set title_size = 3.5 %}
+    {%- set subtitle_size = title_size * 0.75 %}
+    {%- set center_y = LABEL_HEIGHT/2 %}
+    {% for label in labels %}
+    <g>
+        <!-- {{ label.name | escape }} -->
+        {% if label.icon_filename %}
+        <image
+            x="{{ (label.x + padding)|mm }}"
+            y="{{ (label.y + center_y - icon_size/2)|mm }}"
+            width="{{ icon_size|mm }}"
+            height="{{ icon_size|mm }}"
+            href="{{ label.icon_filename }}"
+        />
+        {% endif %}
+        <text
+            x="{{ (label.x + 2*padding + icon_size)|mm }}"
+            y="{{ (label.y + center_y)|mm }}"
+            font-size="{{ title_size|mm }}"
+            dominant-baseline="text-bottom"
+            style="font-weight: bold; font-family: 'EB Garamond', 'Times New Roman', serif"
+        >{{ label.name | escape }}</text>
+        <text
+            x="{{ (label.x + 2*padding + icon_size)|mm }}"
+            y="{{ (label.y + center_y)|mm }}"
+            dy="0.2em"
+            font-size="{{ subtitle_size|mm }}"
+            dominant-baseline="hanging"
+            style="font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        >{{ label.code | upper | escape }} - {{ label.released_at.strftime('%B %Y') }}</text>
+    </g>
+    {% endfor %}
+</svg>
