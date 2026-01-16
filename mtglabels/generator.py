@@ -295,7 +295,7 @@ class LabelGenerator:
         set_data = [
             exp
             for exp in set_data
-            if set_filter(exp)
+            if set_filter(exp) and not exp["digital"]
         ]
         log.info("Selected %d sets: %s", len(set_data), " ".join(exp["code"] for exp in set_data))
         return set_data
