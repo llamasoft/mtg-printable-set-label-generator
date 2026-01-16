@@ -15,6 +15,7 @@ SET_TYPES = (
     "archenemy",
     "box",
     "funny",  # Unglued, Unhinged, Ponies: TG, etc.
+    "eternal",
     # "memorabilia",  # Commander's Arsenal, Celebration Cards, World Champ Decks
     # "spellbook",
     # These are relatively large groups of sets
