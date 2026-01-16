@@ -60,7 +60,7 @@ The labels are designed for US Letter paper but this can be customized:
     python mtglabels/generator.py \
         --columns 7 --rows 22 \
         --label-width 25 --label-height 9.5 \
-        --margin-width 11.5 --margin-height 4
+        --margin-horizontal 11.5 --margin-vertical 4
 
 The label layouts can be customized:
 
