@@ -357,7 +357,7 @@ class LabelGenerator:
         output_path = output_dir / "icons" / file_name
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "wb") as f:
-            f.write(self.get_set_icon(clean_url))
+            f.write(self.get_set_icon(icon_url))
 
         return str(output_path.relative_to(output_dir))
 
