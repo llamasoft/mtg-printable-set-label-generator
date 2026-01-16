@@ -1,6 +1,6 @@
 import argparse
 import logging
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Callable, Optional
 
@@ -280,12 +280,14 @@ class LabelGenerator:
         if unknown_sets:
             log.warning("Unknown sets: %s", ", ".join(unknown_sets))
 
+        prerelease = (date.today() + timedelta(days=14)).isoformat()
         def default_filter(exp):
             return (
                 exp["code"] not in config.IGNORED_SETS
                 and exp["card_count"] >= config.MINIMUM_SET_SIZE
                 and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
                 and (not set_codes or exp["code"].lower() in specified_sets)
+                and exp["released_at"] <= prerelease
             )
 
         set_filter = set_filter if callable(set_filter) else default_filter
