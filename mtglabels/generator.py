@@ -280,15 +280,20 @@ class LabelGenerator:
         if unknown_sets:
             log.warning("Unknown sets: %s", ", ".join(unknown_sets))
 
-        set_data = [
-            exp
-            for exp in set_data
-            if (
+        def default_filter(exp):
+            return (
                 exp["code"] not in config.IGNORED_SETS
                 and exp["card_count"] >= config.MINIMUM_SET_SIZE
                 and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
                 and (not set_codes or exp["code"].lower() in specified_sets)
-            ) and (not callable(set_filter) or set_filter(exp))
+            )
+
+        set_filter = set_filter if callable(set_filter) else default_filter
+
+        set_data = [
+            exp
+            for exp in set_data
+            if set_filter(exp)
         ]
         log.info("Selected %d sets: %s", len(set_data), " ".join(exp["code"] for exp in set_data))
         return set_data
