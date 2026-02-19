@@ -287,7 +287,7 @@ class LabelGenerator:
                 and exp["card_count"] >= config.MINIMUM_SET_SIZE
                 and (not config.SET_TYPES or exp["set_type"] in config.SET_TYPES)
                 and (not set_codes or exp["code"].lower() in specified_sets)
-                and exp["released_at"] <= prerelease
+                and (exp["released_at"] <= prerelease or "default.svg" not in exp.get("icon_svg_url", ""))
             )
 
         set_filter = set_filter if callable(set_filter) else default_filter
