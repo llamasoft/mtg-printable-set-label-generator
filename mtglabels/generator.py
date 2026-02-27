@@ -1,4 +1,5 @@
 import argparse
+import json
 import logging
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -11,8 +12,8 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-import mtglabels.config as config
 import mtglabels.cache as cache
+import mtglabels.config as config
 
 # Set up logging
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
@@ -135,6 +136,38 @@ class LabelGenerator:
                 f"Page not tall enough for {self.label_rows} rows of {self.label_height}mm labels"
                 f" with {self.margin_vertical}mm top/bottom margins ({required_height:.1f}mm > {self.page_height:.1f}mm)"
             )
+
+    @staticmethod
+    def _parse_custom_set_data(set_data_json: str) -> dict:
+        """Parses and validates custom Scryfall Set API JSON entries."""
+        set_data = json.loads(set_data_json)
+        if not isinstance(set_data, dict):
+            raise ValueError("Scryfall Set API JSON must be a dict")
+
+        # Fill in missing name/code with data from the other
+        if "code" not in set_data and "name" not in set_data:
+            raise ValueError("Scryfall Set API JSON must include a `code` or `name`")
+
+        if "code" in set_data:
+            set_data["code"] = set_data["code"].strip().lower()
+
+        if "name" in set_data:
+            set_data["name"] = set_data["name"].strip()
+        else:
+            set_data["name"] = set_data["code"].upper()
+
+        if "code" not in set_data:
+            clean_name = "".join(set_data["name"].lower().split())
+            set_data["code"] = clean_name[:4]
+
+        # Add reasonable defaults for other fields if missing
+        set_data.setdefault("set_type", "expansion")
+        set_data.setdefault("released_at", date.today().isoformat())
+        set_data.setdefault("card_count", 250)
+        set_data.setdefault("icon_svg_url", "https://svgs.scryfall.io/sets/default.svg?1771822800")
+        for field in ("digital", "foil_only", "nonfoil_only"):
+            set_data.setdefault(field, False)
+        return set_data
 
     def _get_jinja_env(self) -> jinja2.Environment:
         """Returns a Jinja2 environment for template loading"""
@@ -472,6 +505,15 @@ def parse_arguments():
         )
     )
     parser.add_argument(
+        "--custom-set-data",
+        type=str,
+        nargs="*",
+        help=(
+            "Custom set definitions to create labels for in Scryfall JSON API format "
+            "(docs: https://scryfall.com/docs/api/sets)"
+        ),
+    )
+    parser.add_argument(
         "sets",
         nargs="*",
         help=(
@@ -504,10 +546,24 @@ def main():
             args.label_columns,
             args.label_rows,
         )
+
+        # By default, use Scryfall API for set data
+        set_codes = args.sets
+        set_data = None
+
+        # Exclusively use custom set data if provided
+        if args.custom_set_data:
+            set_data = [
+                generator._parse_custom_set_data(s)
+                for s in args.custom_set_data
+            ]
+            set_codes = set(s["code"] for s in set_data)
+
         generator.generate_labels(
             args.template,
             args.output_dir,
-            set_codes=args.sets,
+            set_data=set_data,
+            set_codes=set_codes,
             set_filter=(lambda s: eval(args.set_filter)) if args.set_filter else None,
             skip=args.skip,
             columns_first=args.columns_first,

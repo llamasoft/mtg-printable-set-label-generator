@@ -78,6 +78,13 @@ You can generate labels for specific sets as well:
     # Python expression to filter sets
     python mtglabels/generator.py --set-filter 's["set_type"] in ("core", "expansion")'
 
+Custom sets with icons can be created using Scryfall's [JSON API format](https://scryfall.com/docs/api/sets):
+
+    python mtglabels/generator.py \
+      --template icon_code.svg.jinja \
+      --custom-set-data \
+        '{"code": "foil", "icon_svg_uri": "https://example.com/bling.png"}' \
+        '{"code": "bulk", "icon_svg_uri": "https://example.com/trash.jpg"}'
 
 You can change how the labels are actually displayed and rendered by customizing `templates/labels.svg`.
 If you change the fonts, you may also need to resize things to fit.
